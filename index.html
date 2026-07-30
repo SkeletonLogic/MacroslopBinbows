@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Macroslop Binbows | little Windows tools, redrawn in glass</title>
+<meta name="description" content="Macroslop Binbows makes small Windows tools. Macroslop Snipper for screen capture and GIF recording, Macroslop SoundUFer for per-application audio routing. Free, portable, Windows 10 and 11 64-bit.">
+<link rel="canonical" href="https://dreamsinshades.github.io/MacroslopBinbows/">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Macroslop Binbows">
+<meta property="og:title" content="Macroslop Binbows | little Windows tools, redrawn in glass">
+<meta property="og:description" content="Screen capture that records GIFs, and per-application audio routing that survives Windows. Free, portable, no installer.">
+<meta property="og:url" content="https://dreamsinshades.github.io/MacroslopBinbows/">
+<meta property="og:image" content="https://dreamsinshades.github.io/MacroslopBinbows/assets/video/Macroslop-Snipper-WebCard-Poster.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{color-scheme:light}body{margin:0;padding:0;background:#faf9f5;color:#141413}img{max-width:100%}</style>
+</head>
+<body>
+<title>Macroslop Binbows | little Windows tools, redrawn in glass</title>
+<style>
+  :root{
+    --deep:#0E3A54; --mid:#2C7CA0; --aero:#3C7FB1; --aero-deep:#1C567E;
+    --ink:#173B52; --ink-soft:#31566F;
+    --font:"Segoe UI","Frutiger","Myriad Pro",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{color-scheme:light}
+  body{
+    font-family:var(--font);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+    min-height:100vh;position:relative;overflow-x:hidden;
+    background:
+      linear-gradient(180deg, rgba(5,26,44,.58) 0%, rgba(5,26,44,.34) 30%, rgba(5,26,44,.3) 100%) center top / cover no-repeat,
+      url("assets/backdrop.jpg") center top / cover no-repeat,
+      #3E90B6;
+  }
+  .wrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:34px 24px 130px}
+
+  /* frosted nav */
+  .nav{display:flex;align-items:center;gap:14px;padding:11px 18px;border-radius:12px;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);
+    -webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);
+    box-shadow:0 10px 30px rgba(6,34,54,.35),inset 0 1px 0 rgba(255,255,255,.65)}
+  .logo{height:56px;width:auto;flex:none;display:block;filter:drop-shadow(0 3px 6px rgba(6,34,54,.5))}
+  .brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .brand b{font-size:27px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;color:#fff;line-height:1;
+    text-shadow:0 2px 6px rgba(6,34,54,.7),0 1px 2px rgba(6,34,54,.6)}
+  .brand span{font-size:14px;font-weight:500;color:#eaffff;text-shadow:0 1px 3px rgba(6,34,54,.7)}
+  .navlinks{display:flex;align-items:center;gap:10px}
+  .nav .kick{margin:0 auto}
+  .nlink{font-size:12.5px;color:#eaffff;text-decoration:none;padding:7px 13px;border-radius:7px;
+    border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+
+  /* hero */
+  .kick{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+    color:#fff;background:linear-gradient(180deg,#ffb469 0%,#f2842a 52%,#d75f16 100%);
+    border:1px solid #b04d0d;padding:7px 14px;border-radius:999px;white-space:nowrap;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 4px 12px rgba(120,55,10,.5),0 0 0 1px rgba(240,165,95,.45);
+    text-shadow:0 1px 2px rgba(110,45,5,.6)}
+  .hero{display:flex;align-items:stretch;gap:28px;flex-wrap:wrap;padding:46px 6px 70px}
+  .panelglass{position:relative;border-radius:18px;background:rgba(6,28,48,.5);border:1px solid rgba(255,255,255,.26);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 10px 26px rgba(4,22,40,.4)}
+  .herotext{flex:1.25;min-width:300px;display:flex;align-items:center;padding:22px 26px}
+  .ask{flex:1;min-width:280px;padding:20px 22px 22px}
+  .ask h2{font-size:17px;font-weight:500;color:#fff;text-align:center;text-shadow:0 1px 4px rgba(4,22,40,.75)}
+  .logogrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  .lg{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:9px;height:84px;border-radius:14px;
+    font-size:16px;font-weight:700;color:#fff;text-decoration:none;cursor:pointer;
+    text-shadow:0 1px 2px rgba(0,0,0,.4);
+    box-shadow:inset 0 2px 3px rgba(255,255,255,.65),inset 0 -8px 14px rgba(0,0,0,.28),0 4px 10px rgba(4,22,40,.4);
+    transition:transform .12s ease, filter .12s ease}
+  .lg svg{filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+  .lg::after{content:"";position:absolute;left:5%;right:5%;top:4%;height:44%;border-radius:10px 10px 45% 45%/10px 10px 60% 60%;
+    background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,0));pointer-events:none}
+  .lg:hover{transform:translateY(-2px);filter:brightness(1.08)}
+  .lg-red{background:linear-gradient(160deg,#ff8a6d,#e5432a 55%,#c22f16)}
+  .lg-green{background:linear-gradient(160deg,#b9ec83,#6cbf34 55%,#4f9a1e)}
+  .lg-bar{grid-column:1/-1;height:62px;cursor:default;opacity:.94;
+    background:linear-gradient(172deg,#5ab9f0 0%,#2f8fd0 60%,#ffd34e 61%,#f2ae06 100%)}
+  .lg-bar:hover{transform:none;filter:none}
+  .hero h1{margin:0;font-family:var(--font);font-weight:600;
+    font-size:clamp(16px,2.8vw,26px);line-height:2.24;max-width:none;color:transparent;
+    background:linear-gradient(180deg,#ffffff 0%,#eafcff 42%,#8fd7f7 58%,#d3f1fd 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-stroke:1px #0d4a75;
+    filter:drop-shadow(0 2px 0 rgba(10,60,95,.5)) drop-shadow(0 4px 10px rgba(4,22,40,.6));flex:1}
+  .hero h1 span{display:block}
+  .hero h1 .l1{text-align:left}
+  .hero h1 .l2{text-align:center}
+  .hero h1 .l3{text-align:right}
+  .hero h1 b{font-weight:500;color:#d9fbff}
+  .hero p{font-size:clamp(15px,2vw,18px);color:#f2fbff;max-width:52ch;font-weight:400;
+    text-shadow:0 2px 8px rgba(4,22,40,.7),0 1px 2px rgba(4,22,40,.6)}
+
+  .sect-h{display:flex;align-items:baseline;gap:12px;margin:10px 6px 30px}
+  .sect-h h2{display:inline-block;font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#f2fcff;
+    padding:7px 16px;border-radius:999px;background:rgba(6,28,48,.5);border:1px solid rgba(255,255,255,.28);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 12px rgba(4,22,40,.35);
+    text-shadow:0 1px 3px rgba(6,34,54,.7)}
+  .sect-h span{font-size:12.5px;color:rgba(255,255,255,.72)}
+
+  .tools{display:flex;flex-direction:column;gap:40px}
+  .showcase{display:flex;gap:22px;align-items:stretch;flex-wrap:wrap}
+  
+  
+  
+  
+  
+  
+  
+  .dl.red{color:#fff;border-color:#b62b17;background:linear-gradient(180deg,#ff8f74 0%,#f0552f 46%,#e0421f 47%,#cf3418 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 1px rgba(210,60,30,.4),0 3px 8px rgba(150,30,10,.35)}
+  .dl.green{color:#fff;border-color:#4f8f18;background:linear-gradient(180deg,#aee87d 0%,#79c23f 46%,#66b02a 47%,#549618 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 1px rgba(90,150,20,.4),0 3px 8px rgba(60,120,10,.35)}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  /* app window / product card */
+  .win{position:relative;border-radius:9px 9px 7px 7px;padding:0 7px 7px;display:flex;flex-direction:column;
+    background:rgba(226,244,251,.28);border:1px solid rgba(255,255,255,.5);
+    -webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);
+    box-shadow:0 30px 62px rgba(5,28,46,.5),0 6px 16px rgba(5,28,46,.35),
+      inset 0 1px 0 rgba(255,255,255,.85),inset 0 0 0 1px rgba(255,255,255,.12)}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  .dl{font-family:var(--font);font-size:14px;font-weight:500;color:#0e3a52;text-decoration:none;white-space:nowrap;
+    padding:10px 20px;border-radius:5px;border:1px solid #3c7fb1;
+    background:linear-gradient(180deg,#f4fbff 0%,#e3f4fe 46%,#cfeafb 47%,#bfe2f8 100%);
+    box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(60,127,177,.4),0 3px 8px rgba(30,90,140,.28)}
+  .dl i{font-style:normal;margin-right:7px}
+  .meta{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+  .meta b{color:var(--ink);font-weight:600}
+
+  /* coming soon strip */
+  .soon{margin-top:26px;border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:14px;
+    background:rgba(255,255,255,.13);border:1px dashed rgba(255,255,255,.45);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+  .soon .s-ico{width:38px;height:38px;border-radius:10px;flex:none;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;
+    font-size:19px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+  .soon b{color:#fff;font-weight:500;font-size:14px;text-shadow:0 1px 2px rgba(6,34,54,.5)}
+  .soon span{display:block;font-size:12.5px;color:rgba(255,255,255,.8);text-shadow:0 1px 2px rgba(6,34,54,.4)}
+
+  footer{position:relative;z-index:2;margin:80px auto 0;width:fit-content;text-align:center;font-size:12.5px;
+    color:rgba(255,255,255,.92);padding:11px 20px;border-radius:999px;
+    background:rgba(6,28,48,.5);border:1px solid rgba(255,255,255,.24);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.3);text-shadow:0 1px 2px rgba(6,34,54,.6)}
+  footer a{color:#d9fbff}
+  a:focus-visible{outline:3px solid #6FD0FF;outline-offset:2px}
+
+  /* ---- promo cards -----------------------------------------------------
+     One 30-second silent loop per product. No playback controls by design:
+     the <video> ignores the pointer, the gloss layer above it absorbs
+     clicks, and the card cancels contextmenu, so there is nothing to scrub,
+     download, cast or pause. */
+  .promo{flex:1 0 100%;margin:0;display:flex;flex-direction:column;gap:11px}
+  .promo-stage{position:relative;display:flex;flex-direction:column;gap:11px}
+  .promo-frame{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#0b2434;
+    border:1px solid rgba(255,255,255,.34);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 18px 40px rgba(4,22,40,.5),0 6px 16px rgba(5,28,46,.35)}
+  .promo-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border:0;
+    pointer-events:none}
+  .promo-gloss{position:absolute;inset:0;border-radius:inherit;
+    background:linear-gradient(180deg,rgba(255,255,255,.16) 0,rgba(255,255,255,.03) 9%,rgba(255,255,255,0) 18%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 0 0 1px rgba(255,255,255,.12)}
+  .promo-dl{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+  .promo-dl .dl{display:inline-flex;align-items:center}
+  .promo-dl .meta{color:#d3e8f7;text-shadow:0 1px 2px rgba(6,34,54,.75)}
+
+  /* Wide enough for the band to hold it: float the download panel into the
+     empty middle of the loop's own title bar. Narrower than that it drops
+     back out and sits under the card. */
+  @media (min-width:820px){
+    .promo-dl{position:absolute;z-index:3;left:50%;top:10.5%;transform:translate(-50%,-50%);
+      gap:13px;padding:6px 15px 6px 6px;border-radius:999px;white-space:nowrap;flex-wrap:nowrap;
+      background:rgba(6,28,48,.55);border:1px solid rgba(255,255,255,.3);
+      -webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 8px 22px rgba(4,22,40,.55)}
+    /* The button is inset 6px inside a full-radius cap, so a full-radius left
+       cap on the button is exactly concentric with the panel behind it. */
+    .promo-dl .dl{padding:8px 17px;font-size:13.5px;border-radius:999px 6px 6px 999px}
+    .promo-dl .meta{font-size:11.5px}
+  }
+</style>
+
+<div class="wrap">
+  <nav class="nav">
+    <img class="logo" src="assets/logo.png" alt="Macroslop Binbows logo"/>
+    <span class="brand"><b>Macroslop Binbows</b></span>
+    <span class="kick">⚠️ WIN10+AI: Use at your own risk!</span>
+    <span class="navlinks">
+      <a class="nlink" href="#tools">Bapps</a>
+    </span>
+  </nav>
+
+  <header class="hero">
+    <div class="herotext panelglass">
+      <h1><span class="l1">Open <i>Binbows</i></span><span class="l2">for a <i>breath</i></span><span class="l3">of <i>fresh</i> Ai<i>r</i></span></h1>
+    </div>
+    <aside class="ask panelglass">
+      <h2>What troubles you, stranger?</h2>
+      <div class="logogrid">
+        <a class="lg lg-red" href="#snip"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><g transform="rotate(168 32 32)"><rect x="8" y="12" width="48" height="40" rx="6" fill="none" stroke="#FFD34E" stroke-width="3" stroke-dasharray="7 6" opacity=".9"/><path d="M48 53 l6 3 -4 4 z" fill="#FFD34E" opacity=".9"/><path d="M22 13 L41 44" stroke="url(#ic-blade)" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M42 13 L23 44" stroke="url(#ic-blade)" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="32" cy="29" r="3.6" fill="url(#ic-cyan)" stroke="#fff" stroke-width="1.2"/><circle cx="20" cy="50" r="6" fill="none" stroke="url(#ic-cyan)" stroke-width="4.5"/><circle cx="44" cy="50" r="6" fill="none" stroke="url(#ic-cyan)" stroke-width="4.5"/><path d="M45 4.5 l1.5 3 3 1.5 -3 1.5 -1.5 3 -1.5 -3 -3 -1.5 3 -1.5 z" fill="#fff"/></g></svg>Snip!</a>
+        <a class="lg lg-green" href="#sound"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><g transform="rotate(-8 32 32)"><path d="M10 25 h9 l14 -12 v38 l-14 -12 h-9 z" fill="url(#ic-spk)"/><path d="M40 23 a13 13 0 0 1 0 18" fill="none" stroke="url(#ic-blue2)" stroke-width="5" stroke-linecap="round"/><path d="M47 16 a23 23 0 0 1 0 32" fill="none" stroke="url(#ic-blue2)" stroke-width="5" stroke-linecap="round"/><path d="M50 8 v9" stroke="#FFD34E" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="48" cy="17.5" r="2.8" fill="#FFD34E"/></g></svg>Sound!</a>
+        <span class="lg lg-bar">Soon(?)</span>
+      </div>
+    </aside>
+  </header>
+
+  <div class="sect-h" id="tools"><h2>Bapplications / Bexecutables</h2></div>
+
+  <div class="tools">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+      <linearGradient id="ic-blade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#dbe9f4"/><stop offset="1" stop-color="#9fb8cc"/></linearGradient>
+      <linearGradient id="ic-cyan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6db4e2"/><stop offset="1" stop-color="#175e97"/></linearGradient>
+      <linearGradient id="ic-spk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfe4f2"/></linearGradient>
+      <linearGradient id="ic-blue2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6db4e2"/><stop offset="1" stop-color="#175e97"/></linearGradient>
+    </defs></svg>
+
+    <div class="showcase">
+      <figure class="promo" id="snip" data-promo>
+        <div class="promo-stage">
+          <div class="promo-frame">
+            <video class="promo-vid" width="1280" height="720" preload="none"
+                   muted loop playsinline disablepictureinpicture disableremoteplayback
+                   controlslist="nodownload noplaybackrate noremoteplayback"
+                   tabindex="-1" aria-hidden="true"
+                   poster="assets/video/Macroslop-Snipper-WebCard-Poster.webp"
+                   data-src="assets/video/Macroslop-Snipper-WebCard-HQ.mp4"></video>
+            <span class="promo-gloss" aria-hidden="true"></span>
+          </div>
+          <div class="promo-dl">
+            <a class="dl red" href="https://github.com/DreamsInShades/MacroslopBinbows/releases/latest/download/MacroslopSnipper.exe" aria-label="Download Macroslop Snipper, free edition"><i>↓</i>Download</a>
+            <span class="meta">v1.0 · Win10 64-bit</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+
+    <div class="showcase">
+      <figure class="promo" id="sound" data-promo>
+        <div class="promo-stage">
+          <div class="promo-frame">
+            <video class="promo-vid" width="1280" height="720" preload="none"
+                   muted loop playsinline disablepictureinpicture disableremoteplayback
+                   controlslist="nodownload noplaybackrate noremoteplayback"
+                   tabindex="-1" aria-hidden="true"
+                   poster="assets/video/Macroslop-SoundUFer-WebCard-Poster.webp"
+                   data-src="assets/video/Macroslop-SoundUFer-WebCard-HQ.mp4"></video>
+            <span class="promo-gloss" aria-hidden="true"></span>
+          </div>
+          <div class="promo-dl">
+            <a class="dl green" href="https://github.com/DreamsInShades/MacroslopBinbows/releases/latest/download/MacroslopSoundUFer.exe" aria-label="Download Macroslop SoundUFer, free edition"><i>↓</i>Download</a>
+            <span class="meta">v1.0 · Win10 64-bit</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <footer>© 2026 Macroslop Binbows · Downloads served via <a href="https://github.com/DreamsInShades/MacroslopBinbows/releases">GitHub Releases</a> · Windows 10</footer>
+</div>
+
+<script>
+/* Promo loops: silent, looping, no controls of any kind. They run only while
+   on screen and stop when the tab goes to the background. */
+(function(){
+  var vids = [].slice.call(document.querySelectorAll("[data-promo] video"));
+  if (!vids.length) return;
+
+  vids.forEach(function(v){
+    v.muted = true;                       /* property as well as attribute */
+    var card = v.closest ? v.closest("[data-promo]") : null;
+    if (card) card.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+  });
+
+  /* Reduced motion: leave the poster frame up, never start playback. */
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var start = function(v){
+    if (!v.getAttribute("src")) { v.src = v.getAttribute("data-src"); v.load(); }
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  };
+
+  if (!("IntersectionObserver" in window)) { vids.forEach(start); return; }
+
+  /* Fetch while the card is still a screenful away, so it is buffered by the
+     time it arrives. Attaching does not start playback. */
+  var warm = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var v = e.target;
+      if (!v.getAttribute("src")) { v.src = v.getAttribute("data-src"); v.load(); }
+      warm.unobserve(v);
+    });
+  }, { rootMargin: "600px 0px" });
+  vids.forEach(function(v){ warm.observe(v); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) start(e.target);
+      else if (!e.target.paused) e.target.pause();
+    });
+  }, { threshold: 0.2 });
+  vids.forEach(function(v){ io.observe(v); });
+
+  document.addEventListener("visibilitychange", function(){
+    if (document.hidden) vids.forEach(function(v){ v.pause(); });
+  });
+})();
+</script>
+
+</body>
+</html>
