@@ -104,6 +104,22 @@
 
   .tools{display:flex;flex-direction:column;gap:40px}
   .showcase{display:flex;gap:22px;align-items:stretch;flex-wrap:wrap}
+  .haunt-intro{position:relative;margin:-12px 6px 26px;min-height:82px;overflow:hidden;border-radius:13px;
+    background:rgba(6,28,48,.32);border:1px solid rgba(255,255,255,.2);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 10px 24px rgba(4,22,40,.25)}
+  .cobweb{position:absolute;left:0;top:0;width:108px;height:74px;opacity:.66;filter:drop-shadow(0 1px 2px rgba(5,26,44,.35))}
+  .cobweb path,.cobweb line{stroke:rgba(236,251,255,.82);stroke-width:1.4;fill:none;stroke-linecap:round}
+  .haunt-note{position:absolute;left:84px;right:128px;top:50%;transform:translateY(-50%);
+    color:rgba(245,252,255,.86);font-size:13px;text-shadow:0 1px 3px rgba(4,22,40,.72)}
+  .peekaboo{position:absolute;right:23px;bottom:-2px;width:72px;height:82px;transition:transform .24s ease,opacity .18s ease,filter .24s ease;
+    filter:drop-shadow(0 5px 8px rgba(4,22,40,.42));will-change:transform,opacity}
+  .peekaboo.is-hiding{transform:translate(86px,18px) rotate(8deg);opacity:.08;filter:drop-shadow(0 0 0 rgba(4,22,40,0))}
+  .peekaboo .bone{stroke:#f3fbff;stroke-width:4.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .peekaboo .rib{stroke-width:3.2}
+  .peekaboo .skull{fill:#f3fbff;stroke:#b9d4e3;stroke-width:1.4}
+  .peekaboo .eye{fill:#173B52}
+  .peekaboo .hide-slot{fill:rgba(6,28,48,.62);stroke:rgba(255,255,255,.25);stroke-width:1}
   
   
   
@@ -240,6 +256,12 @@
     .promo-dl .dl{padding:8px 17px;font-size:13.5px;border-radius:999px 6px 6px 999px}
     .promo-dl .meta{font-size:11.5px}
   }
+  @media (max-width:620px){
+    .haunt-intro{min-height:96px;margin-top:-8px}
+    .haunt-note{left:58px;right:96px;font-size:12px;line-height:1.35}
+    .cobweb{width:82px;height:58px}
+    .peekaboo{right:10px;width:62px;height:72px}
+  }
 </style>
 
 <div class="wrap">
@@ -268,6 +290,31 @@
 
   <div class="sect-h" id="tools"><h2>Bapplications / Bexecutables</h2><span>Haunted unless you know the secret code.</span></div>
 
+  <div class="haunt-intro" aria-label="These apps are haunted unless you know the secret code.">
+    <svg class="cobweb" viewBox="0 0 120 82" aria-hidden="true">
+      <path d="M1 1 C20 14 37 29 52 48 C63 61 75 72 94 81"/>
+      <path d="M1 1 C24 7 45 16 64 31 C81 44 98 52 119 56"/>
+      <path d="M1 1 C13 24 25 42 43 58 C57 70 72 77 94 81"/>
+      <line x1="1" y1="1" x2="119" y2="1"/>
+      <line x1="1" y1="1" x2="1" y2="81"/>
+      <path d="M18 1 C21 13 17 24 9 35"/>
+      <path d="M38 1 C40 20 34 38 20 55"/>
+      <path d="M61 1 C61 26 51 51 31 72"/>
+      <path d="M88 1 C84 26 73 51 55 75"/>
+    </svg>
+    <p class="haunt-note">The downloads are portable and free. The haunting is optional, provided you know the code.</p>
+    <svg class="peekaboo" data-peekaboo viewBox="0 0 72 82" aria-hidden="true">
+      <path class="hide-slot" d="M52 4 h19 v77 h-31 c12 -9 16 -22 16 -38 c0 -17 -7 -29 -4 -39z"/>
+      <circle class="skull" cx="34" cy="17" r="12"/>
+      <circle class="eye" cx="29" cy="15" r="2"/>
+      <circle class="eye" cx="39" cy="15" r="2"/>
+      <path class="bone" d="M34 29 v29"/>
+      <path class="bone rib" d="M21 38 h26 M22 47 h24"/>
+      <path class="bone" d="M34 58 l-13 17 M35 58 l14 17"/>
+      <path class="bone" d="M25 33 l-13 12 M43 33 l15 10"/>
+    </svg>
+  </div>
+
   <div class="tools">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
       <linearGradient id="ic-blade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#dbe9f4"/><stop offset="1" stop-color="#9fb8cc"/></linearGradient>
@@ -290,7 +337,7 @@
           </div>
           <div class="promo-dl">
             <a class="dl red" href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MacroslopSnipper.exe" aria-label="Download Macroslop Snipper, free edition"><i>↓</i>Download</a>
-            <span class="meta">v1.0 · Win10 64-bit · Haunted unless you know the secret code.</span>
+            <span class="meta">v1.0 · Win10 64-bit · Haunted</span>
           </div>
         </div>
       </figure>
@@ -310,7 +357,7 @@
           </div>
           <div class="promo-dl">
             <a class="dl green" href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MacroslopSoundUFer.exe" aria-label="Download Macroslop SoundUFer, free edition"><i>↓</i>Download</a>
-            <span class="meta">v1.0 · Win10 64-bit · Haunted unless you know the secret code.</span>
+            <span class="meta">v1.0 · Win10 64-bit · Haunted</span>
           </div>
         </div>
       </figure>
@@ -365,6 +412,23 @@
 
   document.addEventListener("visibilitychange", function(){
     if (document.hidden) vids.forEach(function(v){ v.pause(); });
+  });
+})();
+
+(function(){
+  var skel = document.querySelector("[data-peekaboo]");
+  if (!skel || !window.matchMedia || window.matchMedia("(pointer: coarse)").matches) return;
+
+  var hiding = false;
+  document.addEventListener("mousemove", function(e){
+    var box = skel.getBoundingClientRect();
+    var cx = box.left + box.width / 2;
+    var cy = box.top + box.height / 2;
+    var dist = Math.hypot(e.clientX - cx, e.clientY - cy);
+    var shouldHide = hiding ? dist < 240 : dist < 155;
+    if (shouldHide === hiding) return;
+    hiding = shouldHide;
+    skel.classList.toggle("is-hiding", hiding);
   });
 })();
 </script>
