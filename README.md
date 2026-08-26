@@ -2,7 +2,7 @@
 
 The public site for Macroslop Binbows' Windows tools, served from GitHub Pages:
 
-<https://dreamsinshades.github.io/MacroslopBinbows/>
+<https://skeletonlogic.github.io/MacroslopBinbows/>
 
 It is one static page with no build step and no dependencies. Everything in
 this repository is the site; the applications themselves live elsewhere and are
@@ -21,7 +21,7 @@ assets/video/       one 30s silent promo loop + poster per product
 Both download buttons point at:
 
 ```
-https://github.com/DreamsInShades/MacroslopBinbows/releases/latest/download/<asset>
+https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/<asset>
 ```
 
 which always resolves to the newest published release, so the page never needs

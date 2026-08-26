@@ -26,7 +26,7 @@ Or, without `gh`: create an empty public repository named `MacroslopBinbows` at
 <https://github.com/new> (no README, no .gitignore, no licence), then:
 
 ```bash
-git remote add origin https://github.com/DreamsInShades/MacroslopBinbows.git
+git remote add origin https://github.com/SkeletonLogic/MacroslopBinbows.git
 ```
 
 ```bash
@@ -36,12 +36,12 @@ git push -u origin main
 ## 2. Turn on Pages
 
 ```bash
-gh api -X POST repos/DreamsInShades/MacroslopBinbows/pages -f "source[branch]=main" -f "source[path]=/"
+gh api -X POST repos/SkeletonLogic/MacroslopBinbows/pages -f "source[branch]=main" -f "source[path]=/"
 ```
 
 Or in the browser: **Settings → Pages → Source: Deploy from a branch → main / (root)**.
 
-The site appears at <https://dreamsinshades.github.io/MacroslopBinbows/> within
+The site appears at <https://skeletonlogic.github.io/MacroslopBinbows/> within
 a minute or two.
 
 ## 3. Publish the release the download buttons point at
@@ -54,7 +54,7 @@ gh release create v1.0 --title "Macroslop Binbows v1.0" --notes-file RELEASE_BOD
 ```
 
 Or drag those two files onto a new release at
-<https://github.com/DreamsInShades/MacroslopBinbows/releases/new>, tagged `v1.0`.
+<https://github.com/SkeletonLogic/MacroslopBinbows/releases/new>, tagged `v1.0`.
 
 Do not rename the assets. `MacroslopSnipper.exe` and `MacroslopSoundUFer.exe`
 are what the page asks for, and `latest/download` matches on filename.
@@ -83,7 +83,7 @@ Suggested release body — save as `RELEASE_BODY.md`, or paste it in:
 ## 4. Check
 
 ```bash
-curl -sIL https://github.com/DreamsInShades/MacroslopBinbows/releases/latest/download/MacroslopSnipper.exe | grep -E "^HTTP|location"
+curl -sIL https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MacroslopSnipper.exe | grep -E "^HTTP|location"
 ```
 
 A `200` at the end means the page's buttons work.
