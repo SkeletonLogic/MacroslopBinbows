@@ -61,8 +61,11 @@ tree.
 
 ## Publishing
 
-The page is regenerated from the same script that builds the Claude artifact
-version, so the two never drift. Edit there, not here.
+This page and the Claude artifact version of it (`../website/index.html`) were
+generated together from one script, but that script was not kept. They are now
+two hand-maintained copies of the same design: a change to one has to be made
+in the other. The differences between them are deliberate and worth preserving
+— see `../website/README.md`.
 
 ## Promo loops
 
