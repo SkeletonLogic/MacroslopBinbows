@@ -108,6 +108,9 @@
     background:rgba(6,28,48,.32);border:1px solid rgba(255,255,255,.2);
     -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 10px 24px rgba(4,22,40,.25)}
+  .hero-haunt{flex:1.25;min-width:300px;margin:0;min-height:238px;
+    background:rgba(6,28,48,.5);border-color:rgba(255,255,255,.26);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 10px 26px rgba(4,22,40,.4)}
   .cobweb{position:absolute;left:0;top:0;width:108px;height:74px;opacity:.66;filter:drop-shadow(0 1px 2px rgba(5,26,44,.35))}
   .cobweb path,.cobweb line{stroke:rgba(236,251,255,.82);stroke-width:1.4;fill:none;stroke-linecap:round}
   .haunt-note{position:absolute;left:112px;right:112px;top:50%;transform:translateY(-50%);
@@ -259,6 +262,7 @@
   }
   @media (max-width:620px){
     .haunt-intro{min-height:96px;margin-top:-8px}
+    .hero-haunt{min-height:190px;margin:0}
     .haunt-note{left:58px;right:74px;font-size:17px}
     .cobweb{width:82px;height:58px}
     .peekaboo{right:14px;bottom:-8px;width:43px;height:59px}
@@ -276,8 +280,50 @@
   </nav>
 
   <header class="hero">
-    <div class="herotext panelglass">
-      <h1><span class="l1">Open <i>Binbows</i></span><span class="l2">for a <i>breath</i></span><span class="l3">of <i>fresh</i> Ai<i>r</i></span></h1>
+    <div class="haunt-intro hero-haunt panelglass" aria-label="These apps are haunted unless you know the secret code.">
+      <svg class="cobweb" viewBox="0 0 120 82" aria-hidden="true">
+        <path d="M1 1 C20 14 37 29 52 48 C63 61 75 72 94 81"/>
+        <path d="M1 1 C24 7 45 16 64 31 C81 44 98 52 119 56"/>
+        <path d="M1 1 C13 24 25 42 43 58 C57 70 72 77 94 81"/>
+        <line x1="1" y1="1" x2="119" y2="1"/>
+        <line x1="1" y1="1" x2="1" y2="81"/>
+        <path d="M18 1 C21 13 17 24 9 35"/>
+        <path d="M38 1 C40 20 34 38 20 55"/>
+        <path d="M61 1 C61 26 51 51 31 72"/>
+        <path d="M88 1 C84 26 73 51 55 75"/>
+      </svg>
+      <p class="haunt-note">The haunting is optional, provided you know the code.</p>
+      <svg class="peekaboo" data-peekaboo viewBox="0 0 84 116" aria-hidden="true">
+        <path class="hide-slot" d="M63 1 h20 v115 h-39 c14 -13 21 -32 21 -57 c0 -25 -8 -45 -2 -58z"/>
+        <rect class="bone" x="33" y="86" width="6" height="22" rx="3"/>
+        <rect class="bone" x="45" y="86" width="6" height="22" rx="3"/>
+        <rect class="bone" x="27" y="104" width="14" height="8" rx="4"/>
+        <rect class="bone" x="43" y="104" width="14" height="8" rx="4"/>
+        <rect class="bone" x="23" y="54" width="6" height="26" rx="3"/>
+        <ellipse class="bone" cx="26" cy="84" rx="6" ry="6"/>
+        <rect class="bone" x="39" y="46" width="6" height="34" rx="3"/>
+        <rect class="bone" x="30" y="52" width="24" height="6" rx="3"/>
+        <line class="shade" x1="31" y1="55" x2="53" y2="55"/>
+        <rect class="bone" x="31" y="60" width="22" height="6" rx="3"/>
+        <line class="shade" x1="32" y1="63" x2="52" y2="63"/>
+        <rect class="bone" x="33" y="68" width="18" height="6" rx="3"/>
+        <line class="shade" x1="34" y1="71" x2="50" y2="71"/>
+        <rect class="bone" x="31" y="78" width="22" height="12" rx="5"/>
+        <ellipse class="bone" cx="42" cy="87" rx="5" ry="5" style="fill:#D6CFB8"/>
+        <rect class="bone" x="31" y="31" width="22" height="18" rx="7"/>
+        <line x1="32" y1="39" x2="52" y2="39" stroke="#6B6250" stroke-width="1.7" stroke-linecap="round"/>
+        <line x1="37" y1="40" x2="37" y2="48" stroke="#6B6250" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="42" y1="40" x2="42" y2="48" stroke="#6B6250" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="47" y1="40" x2="47" y2="48" stroke="#6B6250" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse class="bone" cx="42" cy="22.5" rx="20" ry="18.5"/>
+        <path class="shine" d="M46 9 C36 10 29 17 28 27"/>
+        <ellipse class="socket" cx="33.5" cy="21.5" rx="5.5" ry="6.5"/>
+        <ellipse class="socket" cx="50.5" cy="21.5" rx="5.5" ry="6.5"/>
+        <path class="socket" d="M39 30 h6 l-3 6z"/>
+        <rect class="bone" x="55" y="50" width="6" height="14" rx="3"/>
+        <rect class="bone" x="59" y="26" width="6" height="28" rx="3"/>
+        <ellipse class="bone" cx="64" cy="23" rx="7" ry="7"/>
+      </svg>
     </div>
     <aside class="ask panelglass">
       <h2>What troubles you, stranger?</h2>
@@ -289,53 +335,7 @@
     </aside>
   </header>
 
-  <div class="sect-h" id="tools"><h2>Bapplications / Bexecutables</h2><span>Haunted unless you know the secret code.</span></div>
-
-  <div class="haunt-intro" aria-label="These apps are haunted unless you know the secret code.">
-    <svg class="cobweb" viewBox="0 0 120 82" aria-hidden="true">
-      <path d="M1 1 C20 14 37 29 52 48 C63 61 75 72 94 81"/>
-      <path d="M1 1 C24 7 45 16 64 31 C81 44 98 52 119 56"/>
-      <path d="M1 1 C13 24 25 42 43 58 C57 70 72 77 94 81"/>
-      <line x1="1" y1="1" x2="119" y2="1"/>
-      <line x1="1" y1="1" x2="1" y2="81"/>
-      <path d="M18 1 C21 13 17 24 9 35"/>
-      <path d="M38 1 C40 20 34 38 20 55"/>
-      <path d="M61 1 C61 26 51 51 31 72"/>
-      <path d="M88 1 C84 26 73 51 55 75"/>
-    </svg>
-    <p class="haunt-note">The haunting is optional, provided you know the code.</p>
-    <svg class="peekaboo" data-peekaboo viewBox="0 0 84 116" aria-hidden="true">
-      <path class="hide-slot" d="M63 1 h20 v115 h-39 c14 -13 21 -32 21 -57 c0 -25 -8 -45 -2 -58z"/>
-      <rect class="bone" x="33" y="86" width="6" height="22" rx="3"/>
-      <rect class="bone" x="45" y="86" width="6" height="22" rx="3"/>
-      <rect class="bone" x="27" y="104" width="14" height="8" rx="4"/>
-      <rect class="bone" x="43" y="104" width="14" height="8" rx="4"/>
-      <rect class="bone" x="23" y="54" width="6" height="26" rx="3"/>
-      <ellipse class="bone" cx="26" cy="84" rx="6" ry="6"/>
-      <rect class="bone" x="39" y="46" width="6" height="34" rx="3"/>
-      <rect class="bone" x="30" y="52" width="24" height="6" rx="3"/>
-      <line class="shade" x1="31" y1="55" x2="53" y2="55"/>
-      <rect class="bone" x="31" y="60" width="22" height="6" rx="3"/>
-      <line class="shade" x1="32" y1="63" x2="52" y2="63"/>
-      <rect class="bone" x="33" y="68" width="18" height="6" rx="3"/>
-      <line class="shade" x1="34" y1="71" x2="50" y2="71"/>
-      <rect class="bone" x="31" y="78" width="22" height="12" rx="5"/>
-      <ellipse class="bone" cx="42" cy="87" rx="5" ry="5" style="fill:#D6CFB8"/>
-      <rect class="bone" x="31" y="31" width="22" height="18" rx="7"/>
-      <line x1="32" y1="39" x2="52" y2="39" stroke="#6B6250" stroke-width="1.7" stroke-linecap="round"/>
-      <line x1="37" y1="40" x2="37" y2="48" stroke="#6B6250" stroke-width="1.2" stroke-linecap="round"/>
-      <line x1="42" y1="40" x2="42" y2="48" stroke="#6B6250" stroke-width="1.2" stroke-linecap="round"/>
-      <line x1="47" y1="40" x2="47" y2="48" stroke="#6B6250" stroke-width="1.2" stroke-linecap="round"/>
-      <ellipse class="bone" cx="42" cy="22.5" rx="20" ry="18.5"/>
-      <path class="shine" d="M46 9 C36 10 29 17 28 27"/>
-      <ellipse class="socket" cx="33.5" cy="21.5" rx="5.5" ry="6.5"/>
-      <ellipse class="socket" cx="50.5" cy="21.5" rx="5.5" ry="6.5"/>
-      <path class="socket" d="M39 30 h6 l-3 6z"/>
-      <rect class="bone" x="55" y="50" width="6" height="14" rx="3"/>
-      <rect class="bone" x="59" y="26" width="6" height="28" rx="3"/>
-      <ellipse class="bone" cx="64" cy="23" rx="7" ry="7"/>
-    </svg>
-  </div>
+  <div class="sect-h" id="tools"><h2>Bapplications / Bexecutables</h2></div>
 
   <div class="tools">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
