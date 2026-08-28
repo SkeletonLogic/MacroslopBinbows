@@ -114,7 +114,7 @@
     transition:border-color .16s ease,box-shadow .16s ease}
   .hero-haunt:hover{border-color:rgba(217,251,255,.52);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 12px 30px rgba(4,22,40,.46),0 0 20px rgba(110,208,255,.16)}
-  .cobweb{position:absolute;left:0;top:0;width:154px;height:116px;opacity:.78;filter:drop-shadow(0 1px 2px rgba(5,26,44,.35));cursor:crosshair}
+  .cobweb{position:absolute;inset:0;width:100%;height:100%;opacity:.6;filter:drop-shadow(0 1px 2px rgba(5,26,44,.35));cursor:crosshair}
   .cobweb.is-rippling{animation:web-tremble .62s ease-out}
   .cobweb path,.cobweb line{stroke:rgba(236,251,255,.86);stroke-width:1.2;fill:none;stroke-linecap:round;transform-box:fill-box;transform-origin:0 0}
   .cobweb .anchor{stroke-width:1.6;opacity:.9}.cobweb .radial{opacity:.7}.cobweb .thread{opacity:.82}
@@ -255,7 +255,7 @@
   .patreon-small i{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;font-style:normal;font-size:11px;
     background:linear-gradient(180deg,#ff916f,#ef4f2b);box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
   a:focus-visible{outline:3px solid #6FD0FF;outline-offset:2px}
-  @keyframes web-ripple{to{transform:translate(-50%,-50%) scale(10);opacity:0}}
+  @keyframes web-ripple{to{transform:translate(-50%,-50%) scale(72);opacity:0}}
   @keyframes web-tremble{
     0%,100%{transform:translateZ(0)}
     28%{transform:translate(1px,-1px) skewX(-1deg)}
@@ -304,7 +304,7 @@
     .haunt-intro{min-height:96px;margin-top:-8px}
     .hero-haunt{min-height:190px;margin:0}
     .haunt-note{left:64px;right:88px;font-size:20px}
-    .cobweb{width:110px;height:83px}
+    .cobweb{width:100%;height:100%}
     .peekaboo{right:12px;bottom:-10px;width:58px;height:80px}
     .peekaboo.is-hiding{transform:translate(86px,19px) rotate(8deg)}
     .patreon-ghost{width:48px;height:58px}
@@ -323,20 +323,26 @@
 
   <header class="hero">
     <a class="haunt-intro hero-haunt panelglass" data-haunt-box href="https://www.patreon.com/cw/SkeletonLogic/membership" aria-label="Support SkeletonLogic on Patreon. The haunting is optional if you know the code.">
-      <svg class="cobweb" viewBox="0 0 160 120" aria-hidden="true">
-        <path class="anchor" d="M1 1 H159"/>
-        <path class="anchor" d="M1 1 V119"/>
-        <path class="radial" d="M1 1 C25 19 46 42 64 71 C80 95 103 111 137 119"/>
-        <path class="radial" d="M1 1 C34 10 65 24 92 47 C116 67 137 77 159 82"/>
-        <path class="radial" d="M1 1 C10 37 28 68 55 96 C75 112 101 118 137 119"/>
-        <path class="radial" d="M1 1 C43 30 80 57 119 101"/>
-        <path class="thread" d="M25 1 C29 19 24 35 10 51"/>
-        <path class="thread" d="M51 1 C54 29 44 55 25 80"/>
-        <path class="thread" d="M80 1 C79 41 62 78 34 109"/>
-        <path class="thread" d="M111 1 C103 39 84 78 56 111"/>
-        <path class="thread" d="M1 26 C18 30 34 36 49 46"/>
-        <path class="thread" d="M1 50 C29 55 54 66 77 84"/>
-        <path class="thread" d="M1 76 C37 82 72 95 107 116"/>
+      <svg class="cobweb" viewBox="0 0 600 238" preserveAspectRatio="none" aria-hidden="true">
+        <path class="anchor" d="M1 1 H599"/>
+        <path class="anchor" d="M1 1 V237"/>
+        <path class="anchor" d="M599 1 V237"/>
+        <path class="radial" d="M1 1 C94 39 160 93 215 154 C284 229 387 244 599 218"/>
+        <path class="radial" d="M1 1 C132 20 230 47 318 91 C407 136 494 157 599 158"/>
+        <path class="radial" d="M1 1 C56 78 119 139 209 188 C304 238 420 247 599 237"/>
+        <path class="radial" d="M599 1 C508 32 436 79 367 145 C308 203 236 232 1 237"/>
+        <path class="radial" d="M599 1 C460 25 351 62 249 124 C165 175 83 205 1 213"/>
+        <path class="thread" d="M66 1 C73 42 57 85 20 129"/>
+        <path class="thread" d="M143 1 C151 67 119 128 58 190"/>
+        <path class="thread" d="M239 1 C239 90 191 172 99 231"/>
+        <path class="thread" d="M360 1 C340 86 291 164 214 225"/>
+        <path class="thread" d="M496 1 C445 93 384 166 303 222"/>
+        <path class="thread" d="M548 1 C517 55 486 109 451 163"/>
+        <path class="thread" d="M1 45 C100 53 189 75 270 112 C359 153 460 176 599 177"/>
+        <path class="thread" d="M1 92 C112 101 216 132 313 179 C385 214 477 231 599 226"/>
+        <path class="thread" d="M1 151 C95 157 190 181 286 223"/>
+        <path class="thread" d="M599 57 C498 67 413 96 335 143 C259 189 171 213 1 223"/>
+        <path class="thread" d="M599 111 C483 120 380 149 275 197 C211 226 130 237 1 232"/>
       </svg>
       <p class="haunt-note"><span>The haunting is optional...</span><span>If you know the code.</span></p>
       <svg class="peekaboo" data-peekaboo viewBox="0 0 84 116" aria-hidden="true">
