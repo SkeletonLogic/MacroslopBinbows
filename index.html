@@ -114,9 +114,13 @@
     transition:border-color .16s ease,box-shadow .16s ease}
   .hero-haunt:hover{border-color:rgba(217,251,255,.52);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 12px 30px rgba(4,22,40,.46),0 0 20px rgba(110,208,255,.16)}
-  .cobweb{position:absolute;left:0;top:0;width:154px;height:116px;opacity:.78;filter:drop-shadow(0 1px 2px rgba(5,26,44,.35))}
-  .cobweb path,.cobweb line{stroke:rgba(236,251,255,.86);stroke-width:1.2;fill:none;stroke-linecap:round}
+  .cobweb{position:absolute;left:0;top:0;width:154px;height:116px;opacity:.78;filter:drop-shadow(0 1px 2px rgba(5,26,44,.35));cursor:crosshair}
+  .cobweb.is-rippling{animation:web-tremble .62s ease-out}
+  .cobweb path,.cobweb line{stroke:rgba(236,251,255,.86);stroke-width:1.2;fill:none;stroke-linecap:round;transform-box:fill-box;transform-origin:0 0}
   .cobweb .anchor{stroke-width:1.6;opacity:.9}.cobweb .radial{opacity:.7}.cobweb .thread{opacity:.82}
+  .web-ripple{position:absolute;width:14px;height:14px;border-radius:50%;border:1px solid rgba(245,252,255,.8);
+    pointer-events:none;transform:translate(-50%,-50%) scale(.1);opacity:.86;mix-blend-mode:screen;
+    animation:web-ripple .72s ease-out forwards;box-shadow:0 0 12px rgba(217,251,255,.65)}
   .haunt-note{position:absolute;left:122px;right:134px;top:50%;transform:translateY(-50%);
     color:rgba(245,252,255,.97);font-size:27px;font-weight:650;line-height:1.16;text-align:center;
     text-shadow:0 0 7px rgba(255,255,255,.78),0 0 16px rgba(110,208,255,.52),0 0 30px rgba(159,115,255,.18),0 2px 3px rgba(4,22,40,.95)}
@@ -128,6 +132,21 @@
   .peekaboo .shade{stroke:#D6CFB8;stroke-width:1;stroke-linecap:round}
   .peekaboo .shine{fill:none;stroke:#FFFFFF;stroke-width:3.2;stroke-linecap:round}
   .peekaboo .socket{fill:#2C2A22}
+  .patreon-ghost{position:absolute;left:50%;top:50%;z-index:4;width:58px;height:70px;text-decoration:none;
+    transform:translate(-50%,-50%) scale(.72);opacity:0;pointer-events:none;will-change:transform,left,top,opacity}
+  .patreon-ghost.is-awake{opacity:1;pointer-events:auto;animation:ghost-arrive .92s cubic-bezier(.18,.8,.24,1) both}
+  .ghost-body{position:absolute;inset:3px 8px 7px;border-radius:50% 50% 42% 42%/44% 44% 32% 32%;
+    background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(220,246,255,.72));
+    border:1px solid rgba(255,255,255,.82);box-shadow:inset 0 1px 0 #fff,0 0 18px rgba(217,251,255,.58),0 8px 16px rgba(4,22,40,.34)}
+  .ghost-body::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:14px;
+    background:radial-gradient(circle at 10px 0,transparent 0 8px,rgba(220,246,255,.72) 8.5px 15px,transparent 15.5px),
+      radial-gradient(circle at 28px 0,transparent 0 8px,rgba(220,246,255,.72) 8.5px 15px,transparent 15.5px),
+      radial-gradient(circle at 46px 0,transparent 0 8px,rgba(220,246,255,.72) 8.5px 15px,transparent 15.5px)}
+  .ghost-eye{position:absolute;top:20px;width:5px;height:7px;border-radius:50%;background:#173B52}
+  .ghost-eye.left{left:20px}.ghost-eye.right{right:20px}
+  .patreon-mark{position:absolute;left:50%;top:43px;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;
+    transform:translateX(-50%);font-size:15px;font-weight:800;color:#fff;background:linear-gradient(180deg,#ff8d6d,#f1532d);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 8px rgba(135,35,15,.32)}
   
   
   
@@ -229,7 +248,24 @@
     -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.3);text-shadow:0 1px 2px rgba(6,34,54,.6)}
   footer a{color:#d9fbff}
+  .patreon-small{display:inline-flex;align-items:center;gap:7px;margin-left:8px;padding:5px 10px;border-radius:999px;
+    color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.46);
+    background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(111,208,255,.22) 42%,rgba(8,58,88,.45) 43%,rgba(8,58,88,.34));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 2px 8px rgba(4,22,40,.35);text-shadow:0 1px 2px rgba(4,22,40,.72)}
+  .patreon-small i{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;font-style:normal;font-size:11px;
+    background:linear-gradient(180deg,#ff916f,#ef4f2b);box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
   a:focus-visible{outline:3px solid #6FD0FF;outline-offset:2px}
+  @keyframes web-ripple{to{transform:translate(-50%,-50%) scale(10);opacity:0}}
+  @keyframes web-tremble{
+    0%,100%{transform:translateZ(0)}
+    28%{transform:translate(1px,-1px) skewX(-1deg)}
+    58%{transform:translate(-1px,1px) skewX(1deg)}
+  }
+  @keyframes ghost-arrive{
+    0%{transform:translate(-190%,-40%) scale(.35) rotate(-9deg);opacity:0}
+    55%{transform:translate(-76%,-63%) scale(.88) rotate(4deg);opacity:.92}
+    100%{transform:translate(-50%,-50%) scale(1) rotate(0);opacity:1}
+  }
 
   /* ---- promo cards -----------------------------------------------------
      One 30-second silent loop per product. No playback controls by design:
@@ -271,6 +307,7 @@
     .cobweb{width:110px;height:83px}
     .peekaboo{right:12px;bottom:-10px;width:58px;height:80px}
     .peekaboo.is-hiding{transform:translate(86px,19px) rotate(8deg)}
+    .patreon-ghost{width:48px;height:58px}
   }
 </style>
 
@@ -278,14 +315,14 @@
   <nav class="nav">
     <img class="logo" src="assets/logo.png" alt="Macroslop Binbows logo"/>
     <span class="brand"><b>Macroslop Binbows</b></span>
-    <span class="kick">⚠️ WIN10+AI: Use at your own risk!</span>
+    <span class="kick">⚠ MADE WITH AI FOR WINDOWS 10 - USE AT YOUR OWN RISK! ⚠</span>
     <span class="navlinks">
       <a class="nlink" href="#tools">Bapps</a>
     </span>
   </nav>
 
   <header class="hero">
-    <a class="haunt-intro hero-haunt panelglass" href="https://www.patreon.com/cw/SkeletonLogic/membership" aria-label="Support SkeletonLogic on Patreon. The haunting is optional if you know the code.">
+    <a class="haunt-intro hero-haunt panelglass" data-haunt-box href="https://www.patreon.com/cw/SkeletonLogic/membership" aria-label="Support SkeletonLogic on Patreon. The haunting is optional if you know the code.">
       <svg class="cobweb" viewBox="0 0 160 120" aria-hidden="true">
         <path class="anchor" d="M1 1 H159"/>
         <path class="anchor" d="M1 1 V119"/>
@@ -332,6 +369,12 @@
         <rect class="bone" x="59" y="26" width="6" height="28" rx="3"/>
         <ellipse class="bone" cx="64" cy="23" rx="7" ry="7"/>
       </svg>
+      <span class="patreon-ghost" data-patreon-ghost aria-hidden="true">
+        <span class="ghost-body" aria-hidden="true"></span>
+        <span class="ghost-eye left" aria-hidden="true"></span>
+        <span class="ghost-eye right" aria-hidden="true"></span>
+        <span class="patreon-mark" aria-hidden="true">P</span>
+      </span>
     </a>
     <aside class="ask panelglass">
       <h2>What troubles you, stranger?</h2>
@@ -394,7 +437,7 @@
     </div>
   </div>
 
-  <footer>© 2026 Macroslop Binbows · Downloads served via <a href="https://github.com/SkeletonLogic/MacroslopBinbows/releases">GitHub Releases</a> · Windows 10</footer>
+  <footer>© 2026 Macroslop Binbows · Downloads served via <a href="https://github.com/SkeletonLogic/MacroslopBinbows/releases">GitHub Releases</a> · Windows 10 <a class="patreon-small" href="https://www.patreon.com/cw/SkeletonLogic/membership"><i>P</i>Patreon</a></footer>
 </div>
 
 <script>
@@ -446,14 +489,101 @@
 })();
 
 (function(){
+  var box = document.querySelector("[data-haunt-box]");
+  var web = box ? box.querySelector(".cobweb") : null;
   var skel = document.querySelector("[data-peekaboo]");
-  if (!skel || !window.matchMedia || window.matchMedia("(pointer: coarse)").matches) return;
+  var ghost = document.querySelector("[data-patreon-ghost]");
+  if (!box || !web) return;
 
+  var patreon = "https://www.patreon.com/cw/SkeletonLogic/membership";
+  var clicks = 0;
+  var ghostAwake = false;
+  var target = { x: 0.5, y: 0.48 };
+  var current = { x: 0.5, y: 0.48 };
   var hiding = false;
+
+  function localPoint(e){
+    var rect = box.getBoundingClientRect();
+    return {
+      x: Math.max(0, Math.min(rect.width, e.clientX - rect.left)),
+      y: Math.max(0, Math.min(rect.height, e.clientY - rect.top)),
+      w: rect.width,
+      h: rect.height
+    };
+  }
+
+  function ghostPoint(p){
+    var padX = Math.min(62, p.w * 0.18);
+    var padY = Math.min(70, p.h * 0.28);
+    return {
+      x: Math.max(padX, Math.min(p.w - padX, p.x)) / p.w,
+      y: Math.max(padY, Math.min(p.h - padY, p.y)) / p.h
+    };
+  }
+
+  function ripple(e){
+    var p = localPoint(e);
+    var ring = document.createElement("span");
+    ring.className = "web-ripple";
+    ring.style.left = p.x + "px";
+    ring.style.top = p.y + "px";
+    box.appendChild(ring);
+    web.classList.remove("is-rippling");
+    void web.offsetWidth;
+    web.classList.add("is-rippling");
+    window.setTimeout(function(){ ring.remove(); }, 760);
+  }
+
+  function wakeGhost(e){
+    if (!ghost || ghostAwake) return;
+    ghostAwake = true;
+    var p = localPoint(e);
+    var g = ghostPoint(p);
+    target.x = current.x = g.x;
+    target.y = current.y = g.y;
+    ghost.classList.add("is-awake");
+    requestAnimationFrame(follow);
+  }
+
+  function follow(){
+    if (!ghost || !ghostAwake) return;
+    current.x += (target.x - current.x) * 0.075;
+    current.y += (target.y - current.y) * 0.075;
+    ghost.style.left = (current.x * 100) + "%";
+    ghost.style.top = (current.y * 100) + "%";
+    requestAnimationFrame(follow);
+  }
+
+  web.addEventListener("click", function(e){
+    e.preventDefault();
+    ripple(e);
+    clicks += 1;
+    if (clicks >= 10) wakeGhost(e);
+  });
+
+  box.addEventListener("click", function(e){
+    if (ghostAwake && e.target.closest("[data-patreon-ghost]")) return;
+    e.preventDefault();
+  });
+
+  box.addEventListener("mousemove", function(e){
+    var p = localPoint(e);
+    var g = ghostPoint(p);
+    target.x = g.x;
+    target.y = g.y;
+  });
+
+  box.addEventListener("keydown", function(e){
+    if (e.key !== "Enter" && e.key !== " ") return;
+    e.preventDefault();
+    if (ghostAwake) window.location.href = patreon;
+  });
+
+  if (!skel || !window.matchMedia || window.matchMedia("(pointer: coarse)").matches) return;
   document.addEventListener("mousemove", function(e){
-    var box = skel.getBoundingClientRect();
-    var cx = box.left + box.width / 2;
-    var cy = box.top + box.height / 2;
+    var rect = skel.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
     var dist = Math.hypot(e.clientX - cx, e.clientY - cy);
     var shouldHide = hiding ? dist < 240 : dist < 155;
     if (shouldHide === hiding) return;
