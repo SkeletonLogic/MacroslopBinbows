@@ -553,8 +553,8 @@
 
   function follow(){
     if (!ghost || !ghostAwake) return;
-    current.x += (target.x - current.x) * 0.075;
-    current.y += (target.y - current.y) * 0.075;
+    current.x += (target.x - current.x) * 0.0375;
+    current.y += (target.y - current.y) * 0.0375;
     ghost.style.left = (current.x * 100) + "%";
     ghost.style.top = (current.y * 100) + "%";
     requestAnimationFrame(follow);
