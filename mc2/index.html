@@ -50,12 +50,6 @@
   .tactical:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0 48%,rgba(147,214,111,.09) 49%,transparent 50% 100%) 0 0/100% 7px;opacity:.46}
   .scan-ui{position:absolute;inset:24px;display:grid;grid-template-rows:auto 1fr auto;gap:20px}
   .scan-top,.scan-bottom{display:flex;justify-content:space-between;gap:12px;color:var(--green);font-size:.84rem;font-weight:900}
-  .scan-center{position:relative;display:grid;place-items:center}
-  .mech-mark{width:min(82%,330px);aspect-ratio:1/1;border:1px solid rgba(147,214,111,.6);background:rgba(9,14,12,.46);position:relative;clip-path:polygon(12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%,0 12%)}
-  .mech-mark:before,.mech-mark:after{content:"";position:absolute;inset:18%;border:2px solid rgba(255,200,102,.72);transform:rotate(45deg)}
-  .mech-mark:after{inset:34%;border-color:rgba(147,214,111,.8);transform:rotate(0);box-shadow:0 0 26px rgba(147,214,111,.22)}
-  .bearing{position:absolute;display:grid;place-items:center;width:62px;height:62px;border:1px solid rgba(255,200,102,.65);background:rgba(20,20,16,.8);color:#ffd890;font-weight:900}
-  .bearing.n{top:0;left:50%;transform:translateX(-50%)}.bearing.e{right:0;top:50%;transform:translateY(-50%)}.bearing.s{bottom:0;left:50%;transform:translateX(-50%)}.bearing.w{left:0;top:50%;transform:translateY(-50%)}
   .section{margin:0 -16px;padding:34px 16px;border-top:1px solid rgba(135,167,114,.3);background:rgba(13,18,16,.72)}
   .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
   .block{border:1px solid rgba(135,167,114,.45);background:var(--panel);padding:18px}
@@ -67,7 +61,7 @@
   .netplay strong{display:block;color:#ffe0a0;font-size:2.05rem;text-align:center;text-transform:uppercase}.netplay span{display:block;color:#d8e2d1;text-align:center;font-weight:900}
   footer{padding-top:28px;color:#aebdab;font-size:.92rem}footer .footline{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(135,167,114,.3);padding-top:18px}
   @media (max-width:900px){.hero,.two-col{grid-template-columns:1fr}h1{font-size:3rem;max-width:14ch}.tactical{min-height:360px}}
-  @media (max-width:620px){.wrap{padding:14px 12px 38px}.topbar{align-items:flex-start;flex-direction:column}h1{font-size:2.35rem}.subtitle{font-size:1rem}.hero{padding-top:18px}.hero-actions{align-items:stretch;flex-direction:column}.download-link{width:100%}.tactical{min-height:320px}.scan-ui{inset:14px}.bearing{width:46px;height:46px;font-size:.86rem}.section{margin-left:-12px;margin-right:-12px;padding-top:28px}.netplay strong{font-size:1.58rem}}
+  @media (max-width:620px){.wrap{padding:14px 12px 38px}.topbar{align-items:flex-start;flex-direction:column}h1{font-size:2.35rem}.subtitle{font-size:1rem}.hero{padding-top:18px}.hero-actions{align-items:stretch;flex-direction:column}.download-link{width:100%}.tactical{min-height:320px}.scan-ui{inset:14px}.section{margin-left:-12px;margin-right:-12px;padding-top:28px}.netplay strong{font-size:1.58rem}}
   @media (max-width:380px){h1{font-size:2.05rem}.chip{font-size:.8rem}.scan-top,.scan-bottom{font-size:.72rem}}
 </style>
 </head>
@@ -94,10 +88,6 @@
     <div class="tactical" aria-hidden="true">
       <div class="scan-ui">
         <div class="scan-top"><span>REBONED BUILD A1</span><span>CAMPAIGN VERIFIED</span></div>
-        <div class="scan-center">
-          <div class="bearing n">N</div><div class="bearing e">E</div><div class="bearing s">S</div><div class="bearing w">W</div>
-          <div class="mech-mark"></div>
-        </div>
         <div class="scan-bottom"><span>WIN64 NATIVE</span><span>NETPLAY: SOON</span></div>
       </div>
     </div>
