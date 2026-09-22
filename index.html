@@ -77,7 +77,7 @@
   .lg:hover{transform:translateY(-2px);filter:brightness(1.08)}
   .lg-red{background:linear-gradient(160deg,#ff8a6d,#e5432a 55%,#c22f16)}
   .lg-green{background:linear-gradient(160deg,#b9ec83,#6cbf34 55%,#4f9a1e)}
-  .lg-bar{grid-column:1/-1;height:62px;cursor:default;opacity:.94;
+  .lg-bar{grid-column:1/-1;height:62px;cursor:pointer;opacity:.94;
     background:linear-gradient(172deg,#5ab9f0 0%,#2f8fd0 60%,#ffd34e 61%,#f2ae06 100%)}
   .lg-bar:hover{transform:none;filter:none}
   .hero h1{margin:0;font-family:var(--font);font-weight:600;
@@ -301,6 +301,15 @@
     .promo-dl .meta{font-size:11.5px}
   }
   @media (max-width:620px){
+    .nav{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 12px;padding:12px 14px}
+    .logo{height:48px}
+    .brand{min-width:0}
+    .brand b{font-size:clamp(22px,8vw,34px);line-height:1.05}
+    .nav .kick{grid-column:1/-1;margin:2px 0 0;justify-self:stretch;text-align:center;white-space:normal;border-radius:14px;line-height:1.25}
+    .navlinks{display:none}
+    .wrap{padding:24px 14px 100px}
+    .hero{gap:22px;padding:34px 0 58px}
+    .hero-haunt,.ask{min-width:0;flex-basis:100%;width:100%}
     .haunt-intro{min-height:96px;margin-top:-8px}
     .hero-haunt{min-height:190px;margin:0}
     .haunt-note{left:64px;right:88px;font-size:20px}
