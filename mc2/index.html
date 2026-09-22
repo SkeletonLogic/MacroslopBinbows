@@ -10,57 +10,26 @@
 <meta property="og:title" content="MechCommander 2 - REBONED | Alpha 1">
 <meta property="og:description" content="Native Windows rebuild. Alpha 1 download.">
 <meta property="og:url" content="https://skeletonlogic.github.io/MacroslopBinbows/mc2/">
-<meta property="og:image" content="https://skeletonlogic.github.io/MacroslopBinbows/mc2/assets/base-assault-hero.webp">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <style>
-  :root{
-    color-scheme:dark light;
-    --bg:#080a09;--panel:#151a18;--panel-2:#101412;--line:#526252;
-    --text:#eef4e9;--muted:#c8d3c2;--amber:#ffc866;--green:#cff3a7;--warn:#ffd0b5;
-    --font:"Segoe UI",Roboto,Arial,system-ui,sans-serif;
-  }
+  :root{color-scheme:dark;--bg:#080a09;--panel:#121715;--line:#50614d;--text:#eef4e9;--muted:#c8d3c2;--amber:#ffc866;--green:#d6f5a8;--font:"Segoe UI",Roboto,Arial,system-ui,sans-serif}
   *{box-sizing:border-box}
   html{background:var(--bg)}
-  body{margin:0;overflow-x:hidden;font-family:var(--font);font-size:16px;line-height:1.55;color:var(--text);background:
-    radial-gradient(circle at 62% 0,rgba(255,200,102,.12),transparent 26rem),
-    linear-gradient(90deg,rgba(147,214,111,.055) 1px,transparent 1px) 0 0/72px 72px,
-    linear-gradient(0deg,rgba(240,178,74,.04) 1px,transparent 1px) 0 0/72px 72px,
-    linear-gradient(180deg,#0d100f 0%,#151817 52%,#080a0a 100%)}
-  a{color:var(--green)}
-  a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
-  p{margin:0;color:var(--muted)}
-  strong{color:var(--text)}
-  .wrap{width:min(1180px,100%);margin:0 auto;padding:20px 16px 46px}
-  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:52px;padding:10px 0 18px}
-  .back{display:inline-flex;align-items:center;gap:8px;min-height:40px;color:var(--text);text-decoration:none;font-weight:800}
-  .back-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);background:#121715;color:var(--amber);clip-path:polygon(0 0,100% 0,100% 72%,74% 100%,0 100%)}
-  .chip{display:inline-flex;min-height:34px;align-items:center;padding:6px 10px;border:1px solid rgba(255,200,102,.58);background:rgba(255,200,102,.12);color:#ffe8b2;font-size:.82rem;font-weight:900;text-transform:uppercase}
-  .hero{padding:24px 0 34px;border-bottom:1px solid rgba(135,167,114,.3)}
-  .hero-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr);gap:28px;align-items:center}
-  .wordmark{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-  .logo-mark{display:grid;place-items:center;width:68px;height:58px;flex:none;border:1px solid rgba(255,200,102,.8);background:linear-gradient(145deg,#1d2922,#090d0b);color:#ffe6a6;font-weight:1000;letter-spacing:.02em;clip-path:polygon(9% 0,100% 0,91% 100%,0 100%);box-shadow:inset 0 0 0 2px rgba(147,214,111,.18),0 0 28px rgba(255,200,102,.14)}
-  .title-lockup{min-width:0}.series{display:block;color:#f7c05b;font-size:clamp(1.75rem,4.4vw,4.15rem);font-weight:1000;line-height:.9;text-transform:uppercase;text-shadow:0 2px 0 #000}.subtitle-logo{display:block;margin-top:6px;color:#e8f7dc;font-size:clamp(1.25rem,2.7vw,2.45rem);font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-  .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--green);font-size:.8rem;font-weight:900;text-transform:uppercase}.eyebrow:before{content:"";display:block;width:42px;height:2px;background:#93d66f}
-  h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .hero-copy{max-width:58ch}.intro{font-size:.98rem;color:#dce7d6}.legal{margin-top:10px;color:#aebdab;font-size:.78rem;line-height:1.45}
-  .download-card{display:flex;align-items:center;gap:10px;width:min(100%,420px);margin-top:18px;border:1px solid rgba(135,167,114,.45);background:rgba(21,26,24,.9);padding:10px}
-  .download-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;border:1px solid #9b6c24;background:linear-gradient(180deg,#ffc866,#d98b29);color:#15110a;text-decoration:none;font-weight:900;white-space:nowrap;box-shadow:0 10px 26px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.62)}
-  .download-meta{font-size:.78rem;color:#d5dfce}.download-meta strong{display:block;color:#ffe0a0;font-size:.82rem}
-  .hero-art{position:relative;margin:0;min-height:320px;border:1px solid rgba(135,167,114,.48);background:#101412;overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.46)}
-  .hero-art img{display:block;width:100%;height:100%;min-height:320px;object-fit:cover}.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,9,.5),transparent 36%),linear-gradient(180deg,rgba(8,10,9,.08),rgba(8,10,9,.34));pointer-events:none}.art-tag{position:absolute;left:14px;bottom:14px;z-index:1;padding:7px 10px;border:1px solid rgba(255,200,102,.55);background:rgba(8,10,9,.78);color:#ffe4a1;font-size:.78rem;font-weight:900;text-transform:uppercase}
-  .section{margin:0 -16px;padding:30px 16px 34px;background:rgba(13,18,16,.72)}
-  .netplay-feature{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:22px;align-items:center;margin-bottom:26px}
-  .netplay-poster{position:relative;aspect-ratio:9/16;min-height:420px;border:1px solid rgba(255,200,102,.66);background:#151613;overflow:hidden;box-shadow:0 24px 58px rgba(0,0,0,.38)}
-  .netplay-poster img{display:block;width:100%;height:100%;object-fit:cover}.netplay-poster:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,9,.12),rgba(8,10,9,.72)),linear-gradient(90deg,rgba(255,200,102,.1) 1px,transparent 1px) 0 0/30px 30px;pointer-events:none}
-  .poster-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.poster-copy strong{display:block;color:#ffe0a0;font-size:2.1rem;line-height:1;text-transform:uppercase}.poster-copy span{display:block;color:#e7f2dd;font-weight:900}
-  .netplay-note{border:1px solid rgba(135,167,114,.45);background:rgba(21,26,24,.82);padding:18px}.netplay-note h2{margin:0 0 8px;color:#ffe0a0;font-size:1.12rem;text-transform:uppercase}.netplay-note p{max-width:46ch;font-size:.94rem}
-  .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}
-  .block{min-height:100%;border:1px solid rgba(135,167,114,.48);background:rgba(21,26,24,.92);padding:18px}
-  .block h2{margin:0 0 12px;color:var(--amber);font-size:1rem;text-transform:uppercase}.block ul{margin:0;padding-left:20px;color:#d8e2d1}.block li{margin:8px 0;font-size:.92rem}.block.rough{border-color:rgba(135,167,114,.48);background:rgba(21,26,24,.92)}.block.rough h2{color:var(--amber)}
-  code{padding:1px 5px;border:1px solid rgba(135,167,114,.35);background:#0d100f;color:#f4d89d;font-family:"Cascadia Mono","Consolas",monospace;font-size:.94em}
-  footer{padding-top:28px;color:#aebdab;font-size:.92rem}footer .footline{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(135,167,114,.3);padding-top:18px}
-  @media (max-width:900px){.hero-grid,.netplay-feature,.two-col{grid-template-columns:1fr}.download-card{max-width:520px}.hero-art{min-height:260px}.hero-art img{min-height:260px}.netplay-poster{width:min(100%,360px);min-height:0}}
-  @media (max-width:620px){.wrap{padding:14px 12px 38px}.topbar{align-items:flex-start;flex-direction:column}.wordmark{align-items:flex-start}.logo-mark{width:54px;height:48px}.section{margin-left:-12px;margin-right:-12px}.download-card{align-items:stretch;flex-direction:column}.download-link{width:100%}.poster-copy strong{font-size:1.58rem}}
+  body{margin:0;overflow-x:hidden;font-family:var(--font);font-size:16px;line-height:1.5;color:var(--text);background:linear-gradient(90deg,rgba(147,214,111,.055) 1px,transparent 1px) 0 0/72px 72px,linear-gradient(0deg,rgba(240,178,74,.04) 1px,transparent 1px) 0 0/72px 72px,linear-gradient(180deg,#0d100f 0%,#111614 54%,#080a0a 100%)}
+  a{color:var(--green)}a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}p{margin:0;color:var(--muted)}
+  .wrap{width:min(1180px,100%);margin:0 auto;padding:18px 16px 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:48px;padding:6px 0 16px}
+  .back{display:inline-flex;align-items:center;gap:8px;min-height:36px;color:var(--text);text-decoration:none;font-weight:800}.back-mark{display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);background:#121715;color:var(--amber);clip-path:polygon(0 0,100% 0,100% 72%,74% 100%,0 100%)}
+  .chip{display:inline-flex;min-height:32px;align-items:center;padding:5px 9px;border:1px solid rgba(255,200,102,.58);background:rgba(255,200,102,.12);color:#ffe8b2;font-size:.78rem;font-weight:900;text-transform:uppercase}
+  .hero{padding:20px 0 26px;border-bottom:1px solid rgba(135,167,114,.32)}.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--green);font-size:.76rem;font-weight:900;text-transform:uppercase}.eyebrow:before{content:"";display:block;width:42px;height:2px;background:#93d66f}
+  .title-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}.logo-mark{display:grid;place-items:center;width:54px;height:46px;flex:none;border:1px solid rgba(255,200,102,.8);background:#0a0e0c;color:#ffe6a6;font-weight:1000;letter-spacing:.02em;clip-path:polygon(9% 0,100% 0,91% 100%,0 100%);box-shadow:inset 0 0 0 2px rgba(147,214,111,.16)}
+  h1{margin:0;color:#f7c05b;font-size:4.75rem;font-weight:1000;line-height:.9;text-transform:uppercase;text-shadow:0 2px 0 #000}.subtitle{display:block;margin-top:6px;color:#edf9e0;font-size:1.85rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  .copy-row{display:flex;align-items:flex-start;gap:18px;max-width:850px}.copy-text{max-width:48ch}.intro{font-size:.92rem;color:#dce7d6}.legal{margin-top:8px;color:#aebdab;font-size:.72rem;line-height:1.38}
+  .download-card{display:flex;align-items:center;gap:9px;flex:none;border:1px solid rgba(135,167,114,.45);background:rgba(18,23,21,.9);padding:8px 9px}.download-link{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 12px;border:1px solid #9b6c24;background:linear-gradient(180deg,#ffc866,#d98b29);color:#15110a;text-decoration:none;font-weight:900;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.62)}.download-meta{font-size:.72rem;color:#d5dfce;white-space:nowrap}.download-meta strong{display:block;color:#ffe0a0;font-size:.76rem}
+  .section{padding:34px 0 30px}.teaser-shell{display:grid;place-items:center;min-height:520px;border-top:1px solid rgba(135,167,114,.25);border-bottom:1px solid rgba(135,167,114,.25);margin-bottom:28px;padding:28px 0}.teaser-frame{display:grid;place-items:center;width:min(100%,360px);aspect-ratio:9/16;border:1px solid rgba(255,200,102,.66);background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86);box-shadow:0 22px 54px rgba(0,0,0,.34)}.teaser-label{color:#ffe0a0;font-size:2.8rem;font-weight:1000;letter-spacing:.08em;text-transform:uppercase}
+  .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}.block{min-height:100%;border:1px solid rgba(135,167,114,.48);background:rgba(21,26,24,.92);padding:18px}.block h2{margin:0 0 12px;color:var(--amber);font-size:1rem;text-transform:uppercase}.block ul{margin:0;padding-left:20px;color:#d8e2d1}.block li{margin:8px 0;font-size:.9rem}
+  code{padding:1px 5px;border:1px solid rgba(135,167,114,.35);background:#0d100f;color:#f4d89d;font-family:"Cascadia Mono","Consolas",monospace;font-size:.94em}footer{padding-top:28px;color:#aebdab;font-size:.9rem}footer .footline{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(135,167,114,.3);padding-top:18px}
+  @media (max-width:900px){h1{font-size:3.2rem}.subtitle{font-size:1.4rem}.copy-row{flex-direction:column}.download-card{width:min(100%,420px)}.teaser-shell{min-height:0}.two-col{grid-template-columns:1fr}}
+  @media (max-width:620px){.wrap{padding:14px 12px 38px}.topbar{align-items:flex-start;flex-direction:column}.title-row{align-items:flex-start;flex-direction:column}.logo-mark{width:48px;height:42px}h1{font-size:2.25rem}.subtitle{font-size:1.08rem}.download-card{align-items:stretch;flex-direction:column}.download-link{width:100%}.download-meta{white-space:normal}.teaser-label{font-size:2.15rem}}
 </style>
 </head>
 <body>
@@ -71,47 +40,35 @@
   </nav>
 
   <header class="hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Native Windows rebuild</div>
-        <div class="wordmark" aria-hidden="true">
-          <span class="logo-mark">MC2</span>
-          <span class="title-lockup"><span class="series">MechCommander 2</span><span class="subtitle-logo">REBONED</span></span>
-        </div>
-        <h1>MechCommander 2 - REBONED</h1>
+    <div class="eyebrow">Native Windows rebuild</div>
+    <div class="title-row">
+      <span class="logo-mark" aria-hidden="true">MC2</span>
+      <h1>MechCommander 2 <span class="subtitle">REBONED</span></h1>
+    </div>
+    <div class="copy-row">
+      <div class="copy-text">
         <p class="intro">MechCommander 2 rebuilt for modern Windows. Alpha 1. The campaign has been completed in testing.</p>
         <p class="legal">Microsoft published MechCommander 2 as shared source. Original IP belongs to Microsoft/FASA. Free download; no ads or gated build.</p>
-        <div class="download-card" id="download">
-          <a class="download-link" data-download-link href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MC2-REBONED-Alpha-1.zip">Download Alpha 1</a>
-          <span class="download-meta"><strong>Alpha 1</strong>about 600 MB | Windows 10/11 64-bit</span>
-        </div>
       </div>
-      <figure class="hero-art">
-        <img src="assets/base-assault-hero.webp" alt="Mech units advancing on a fortified base in MechCommander 2 REBONED">
-        <figcaption class="art-tag">REBONED field build</figcaption>
-      </figure>
+      <div class="download-card" id="download">
+        <a class="download-link" data-download-link href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MC2-REBONED-Alpha-1.zip">Download Alpha 1</a>
+        <span class="download-meta"><strong>Alpha 1</strong>about 600 MB | Windows 10/11 64-bit</span>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="section" aria-label="Alpha notes">
-      <div class="netplay-feature" aria-label="NetPlay coming soon">
-        <div class="netplay-poster">
-          <img src="assets/netplay-poster.webp" alt="Vertical preview image for future NetPlay video">
-          <div class="poster-copy"><strong>NetPlay</strong><span>Browser multiplayer coming soon</span></div>
-        </div>
-        <div class="netplay-note">
-          <h2>Future Preview Slot</h2>
-          <p>This 9:16 panel is sized for a browser NetPlay video preview when there is footage worth showing.</p>
-        </div>
+      <div class="teaser-shell" aria-label="NetPlay teaser placeholder">
+        <div class="teaser-frame"><span class="teaser-label">Teaser</span></div>
       </div>
       <div class="two-col">
-        <div class="block rough">
+        <div class="block">
           <h2>Known Rough Edges</h2>
           <ul>
             <li>Frame rate can dip while spinning the camera hard in heavy scenes.</li>
             <li>Some buildings on the Palace maps have no collision.</li>
-            <li>Units can occasionally lock up in movement, an original MechCommander 2 bug. Jump jets usually free them.</li>
+            <li>Units can occasionally lock up in movement. Jump jets usually free them.</li>
           </ul>
         </div>
         <div class="block">
