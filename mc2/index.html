@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MechCommander 2 - REBONED | Alpha 1</title>
+<meta name="description" content="MechCommander 2 - REBONED is an Alpha 1 native Windows rebuild of Microsoft's shared-source MechCommander 2 release. The complete game package is free.">
+<link rel="canonical" href="https://skeletonlogic.github.io/MacroslopBinbows/mc2/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MechCommander 2 - REBONED | Alpha 1">
+<meta property="og:description" content="Native Windows MechCommander 2 rebuild. Alpha 1, complete package, no original disc required.">
+<meta property="og:url" content="https://skeletonlogic.github.io/MacroslopBinbows/mc2/">
+<meta name="twitter:card" content="summary">
+<style>
+  :root{
+    color-scheme:dark light;
+    --bg:#090b0b;
+    --bg-2:#111514;
+    --panel:#171d1b;
+    --panel-2:#202723;
+    --line:#49594d;
+    --line-bright:#87a772;
+    --text:#eef4e9;
+    --muted:#bdc9b7;
+    --amber:#f0b24a;
+    --amber-2:#ffc866;
+    --green:#93d66f;
+    --green-2:#cff3a7;
+    --danger:#ff9a64;
+    --steel:#87929a;
+    --shadow:rgba(0,0,0,.46);
+    --font:"Segoe UI",Roboto,Arial,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{min-width:0;background:var(--bg)}
+  body{
+    min-width:0;margin:0;overflow-x:hidden;
+    font-family:var(--font);font-size:16px;line-height:1.55;letter-spacing:0;
+    color:var(--text);
+    background:
+      linear-gradient(90deg,rgba(147,214,111,.05) 1px,transparent 1px) 0 0/72px 72px,
+      linear-gradient(0deg,rgba(240,178,74,.045) 1px,transparent 1px) 0 0/72px 72px,
+      radial-gradient(circle at 70% 8%,rgba(147,214,111,.09),transparent 34rem),
+      linear-gradient(180deg,#0d100f 0%,#151817 48%,#080a0a 100%);
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background:
+      linear-gradient(115deg,transparent 0 21%,rgba(255,255,255,.035) 21.2% 21.7%,transparent 22% 48%,rgba(240,178,74,.05) 48.2% 48.7%,transparent 49%),
+      linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.34));
+  }
+  a{color:var(--green-2)}
+  a:focus-visible,.download-link:focus-visible{
+    outline:3px solid var(--amber-2);outline-offset:4px;
+  }
+  p{margin:0;color:var(--muted)}
+  strong{color:var(--text);font-weight:700}
+  .wrap{width:min(1180px,100%);margin:0 auto;padding:20px 16px 48px}
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    min-height:52px;padding:10px 0 18px;
+  }
+  .back{
+    display:inline-flex;align-items:center;gap:8px;min-height:40px;
+    color:var(--text);text-decoration:none;font-weight:700;
+  }
+  .back-mark{
+    display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);
+    background:#121715;color:var(--amber-2);clip-path:polygon(0 0,100% 0,100% 72%,74% 100%,0 100%);
+  }
+  .build-chip{
+    display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:6px 10px;
+    border:1px solid rgba(240,178,74,.55);background:rgba(240,178,74,.12);
+    color:#ffe8b2;font-weight:800;font-size:.88rem;
+  }
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);
+    gap:26px;align-items:stretch;padding:30px 0 34px;
+  }
+  .hero-copy{display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+    color:var(--green-2);font-weight:800;font-size:.86rem;text-transform:uppercase;
+  }
+  .eyebrow::before{
+    content:"";display:block;width:42px;height:2px;background:var(--green);
+    box-shadow:0 0 16px rgba(147,214,111,.55);
+  }
+  h1,h2,h3{margin:0;color:var(--text);line-height:1.08;letter-spacing:0}
+  h1{
+    max-width:12ch;font-size:3.6rem;font-weight:900;text-transform:uppercase;
+    text-shadow:0 2px 0 #000,0 0 24px rgba(147,214,111,.12);
+  }
+  .subtitle{
+    max-width:58ch;margin-top:20px;font-size:1.08rem;color:#dce7d6;
+  }
+  .hero-actions{
+    display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px;
+  }
+  .download-link{
+    display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+    padding:12px 18px;border:1px solid #9b6c24;background:linear-gradient(180deg,#ffc866,#d98b29);
+    color:#15110a;text-decoration:none;font-weight:900;
+    box-shadow:0 10px 26px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.62);
+  }
+  .download-link.is-disabled{
+    color:#c5beb0;border-color:#5b5142;background:#2a2722;box-shadow:none;cursor:not-allowed;
+  }
+  .download-meta{font-size:.94rem;color:#d5dfce}
+  .download-meta strong{color:#ffe0a0}
+  .scope-note{
+    max-width:62ch;margin-top:12px;color:#d8e2d1;font-weight:700;
+  }
+  .tactical{
+    position:relative;min-height:430px;overflow:hidden;
+    border:1px solid var(--line);background:#111614;
+    clip-path:polygon(0 0,92% 0,100% 9%,100% 100%,8% 100%,0 91%);
+    box-shadow:0 28px 70px var(--shadow),inset 0 0 0 1px rgba(255,255,255,.04);
+  }
+  .tactical::before{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,rgba(147,214,111,.13) 1px,transparent 1px) 0 0/36px 36px,
+      linear-gradient(0deg,rgba(147,214,111,.13) 1px,transparent 1px) 0 0/36px 36px;
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.12));
+  }
+  .tactical::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 0 48%,rgba(147,214,111,.09) 49%,transparent 50% 100%) 0 0/100% 7px;
+    mix-blend-mode:screen;opacity:.46;
+  }
+  .scan-ui{position:absolute;inset:24px;display:grid;grid-template-rows:auto 1fr auto;gap:20px}
+  .scan-top,.scan-bottom{display:flex;justify-content:space-between;gap:12px;color:var(--green-2);font-weight:800;font-size:.84rem}
+  .scan-center{position:relative;display:grid;place-items:center}
+  .mech-mark{
+    width:min(82%,330px);aspect-ratio:1/1;border:1px solid rgba(147,214,111,.6);
+    background:rgba(9,14,12,.46);position:relative;
+    clip-path:polygon(12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%,0 12%);
+  }
+  .mech-mark::before,.mech-mark::after{
+    content:"";position:absolute;inset:18%;border:2px solid rgba(240,178,74,.72);
+    transform:rotate(45deg);
+  }
+  .mech-mark::after{
+    inset:34%;border-color:rgba(147,214,111,.8);transform:rotate(0);
+    box-shadow:0 0 26px rgba(147,214,111,.22);
+  }
+  .bearing{
+    position:absolute;display:grid;place-items:center;width:64px;height:64px;
+    border:1px solid rgba(240,178,74,.65);color:#ffd890;background:rgba(20,20,16,.8);
+    font-weight:900;
+  }
+  .bearing.n{top:0;left:50%;transform:translateX(-50%)}
+  .bearing.e{right:0;top:50%;transform:translateY(-50%)}
+  .bearing.s{bottom:0;left:50%;transform:translateX(-50%)}
+  .bearing.w{left:0;top:50%;transform:translateY(-50%)}
+  .mission-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:8px;
+    border:1px solid rgba(135,167,114,.45);background:rgba(135,167,114,.45);
+  }
+  .mission-grid span{
+    min-width:0;padding:9px 10px;background:#111614;color:#dcebd4;font-size:.86rem;font-weight:700;
+  }
+  .band{
+    margin:0 -16px;padding:34px 16px;
+    border-top:1px solid rgba(135,167,114,.3);border-bottom:1px solid rgba(135,167,114,.3);
+    background:rgba(13,18,16,.72);
+  }
+  .band.alt{background:rgba(26,31,28,.72)}
+  .section-head{
+    display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px;
+  }
+  .section-head h2{font-size:1.55rem;text-transform:uppercase}
+  .section-head p{max-width:52ch}
+  .status-row{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px;
+  }
+  .status{
+    min-width:0;min-height:112px;padding:14px;border:1px solid rgba(135,167,114,.45);
+    background:linear-gradient(180deg,#171d1a,#111513);
+  }
+  .status b{display:block;margin-bottom:8px;color:#ffe0a0;font-size:.86rem;text-transform:uppercase}
+  .status span{display:block;color:#d4dfce;font-size:.94rem}
+  .two-col{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start;
+  }
+  .block{
+    border:1px solid rgba(135,167,114,.45);background:#151a18;padding:18px;
+  }
+  .block h3{margin-bottom:12px;font-size:1.1rem;color:#ffe0a0;text-transform:uppercase}
+  .block ul,.block ol{margin:0;padding-left:20px;color:#d8e2d1}
+  .block li{margin:9px 0}
+  .rough{
+    border-color:rgba(255,154,100,.62);
+    background:linear-gradient(180deg,rgba(76,39,22,.5),rgba(30,24,19,.9));
+  }
+  .rough h3{color:#ffd0b5}
+  .steps{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+  }
+  .step{
+    position:relative;min-width:0;padding:16px;border:1px solid rgba(135,167,114,.45);
+    background:#151a18;
+  }
+  .step b{display:block;margin-bottom:4px;color:var(--text)}
+  .step span{color:#cdd8c7}
+  code{
+    padding:1px 5px;border:1px solid rgba(135,167,114,.35);background:#0d100f;color:#f4d89d;
+    font-family:"Cascadia Mono","Consolas",monospace;font-size:.94em;
+  }
+  .netplay{
+    display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:22px;align-items:center;
+  }
+  .net-badge{
+    display:grid;place-items:center;min-height:210px;border:1px solid rgba(240,178,74,.58);
+    background:
+      linear-gradient(90deg,rgba(240,178,74,.08) 1px,transparent 1px) 0 0/30px 30px,
+      linear-gradient(0deg,rgba(240,178,74,.08) 1px,transparent 1px) 0 0/30px 30px,
+      #151613;
+  }
+  .net-badge strong{
+    display:block;color:#ffe0a0;font-size:2.05rem;text-align:center;text-transform:uppercase;
+  }
+  .net-badge span{display:block;color:#d8e2d1;text-align:center;font-weight:800}
+  .provenance{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;
+  }
+  .plain-copy p + p{margin-top:12px}
+  .source-list{
+    display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;
+  }
+  .source-list a{
+    display:block;padding:12px 14px;border:1px solid rgba(135,167,114,.45);
+    background:#151a18;text-decoration:none;font-weight:800;
+  }
+  footer{
+    padding:28px 0 0;color:#aebdab;font-size:.92rem;
+  }
+  footer .footline{
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(135,167,114,.3);
+    padding-top:18px;
+  }
+  @media (max-width:900px){
+    .hero,.two-col,.netplay,.provenance{grid-template-columns:1fr}
+    h1{font-size:3rem;max-width:14ch}
+    .tactical{min-height:380px}
+    .status-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:620px){
+    .wrap{padding:14px 12px 38px}
+    .topbar{align-items:flex-start;flex-direction:column}
+    h1{font-size:2.35rem}
+    .subtitle{font-size:1rem}
+    .hero{padding-top:18px}
+    .hero-actions{align-items:stretch;flex-direction:column}
+    .download-link{width:100%}
+    .tactical{min-height:330px}
+    .scan-ui{inset:14px}
+    .bearing{width:46px;height:46px;font-size:.86rem}
+    .mission-grid{grid-template-columns:1fr}
+    .section-head{align-items:start;flex-direction:column}
+    .status-row,.steps{grid-template-columns:1fr}
+    .band{margin-left:-12px;margin-right:-12px;padding-top:28px;padding-bottom:28px}
+    .net-badge strong{font-size:1.58rem}
+  }
+  @media (max-width:380px){
+    h1{font-size:2.05rem}
+    .build-chip{font-size:.8rem}
+    .scan-top,.scan-bottom{font-size:.72rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topbar" aria-label="Page">
+    <a class="back" href="../"><span class="back-mark" aria-hidden="true">&lt;</span><span>Macroslop Binbows</span></a>
+    <span class="build-chip">Alpha 1 / Native Windows Build</span>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">MechCommander 2 rebuild</div>
+      <h1>MechCommander 2 - REBONED</h1>
+      <p class="subtitle">A native modern-Windows build of MechCommander 2, rebuilt from Microsoft's shared-source release. The campaign has been played start to finish on this build.</p>
+      <div class="hero-actions" id="download">
+        <a class="download-link is-disabled" data-download-link aria-disabled="true">Download pending</a>
+        <span class="download-meta"><strong>Alpha 1</strong> | about 600 MB | Windows 10/11 64-bit</span>
+      </div>
+      <p class="scope-note">The download is the complete package: game and content together. You do not need an original MechCommander 2 install, a CD, or a separate asset pack.</p>
+    </div>
+
+    <div class="tactical" aria-hidden="true">
+      <div class="scan-ui">
+        <div class="scan-top"><span>REBONED BUILD A1</span><span>CAMPAIGN VERIFIED</span></div>
+        <div class="scan-center">
+          <div class="bearing n">N</div>
+          <div class="bearing e">E</div>
+          <div class="bearing s">S</div>
+          <div class="bearing w">W</div>
+          <div class="mech-mark"></div>
+        </div>
+        <div class="scan-bottom"><span>WIN64 NATIVE</span><span>NETPLAY: IN DEVELOPMENT</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="band" aria-labelledby="status-heading">
+      <div class="section-head">
+        <h2 id="status-heading">Alpha Status</h2>
+        <p>This is playable, useful, and still plainly an alpha. The point of the page is to get the build into players' hands without pretending the work is finished.</p>
+      </div>
+      <div class="status-row">
+        <div class="status"><b>Native</b><span>Runs on modern Windows without an emulator or compatibility shim.</span></div>
+        <div class="status"><b>Campaign</b><span>The full campaign is playable and has been completed in testing.</span></div>
+        <div class="status"><b>Core Systems</b><span>Sound, video, saves, salvage, pilot promotion and logistics screens work.</span></div>
+        <div class="status"><b>Additions</b><span>FOV slider, render-distance slider, jump-jet slots on every mech, and minor visual quality-of-life work.</span></div>
+      </div>
+    </section>
+
+    <section class="band alt" aria-labelledby="rough-heading">
+      <div class="two-col">
+        <div class="block rough">
+          <h3 id="rough-heading">Known Rough Edges</h3>
+          <ul>
+            <li>Frame rate can dip while spinning the camera hard in heavy scenes.</li>
+            <li>Some buildings on the Palace maps have no collision.</li>
+            <li>Units can occasionally lock up in movement, an original MechCommander 2 bug. Jump jets usually free them.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3>Player Requirements</h3>
+          <ul>
+            <li>64-bit Windows 10 or Windows 11.</li>
+            <li>Copy the whole folder to a local drive, such as <code>C:\Games\MC2-REBONED</code>, before running it.</li>
+            <li>Do not run it from a USB stick; the game writes saves and logs inside its folder.</li>
+            <li>If Windows reports a missing DLL, install the Microsoft Visual C++ Redistributable, x64.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="run-heading">
+      <div class="section-head">
+        <h2 id="run-heading">Run It</h2>
+        <p>No installer, no registry setup, no launcher account. It is a folder you run locally and delete when you are done.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><b>Download the package</b><span>Use the release asset once Alpha 1 is uploaded. The button above stays disabled until that URL is set.</span></div>
+        <div class="step"><b>Move it to a local drive</b><span>Copy the extracted folder somewhere like <code>C:\Games\MC2-REBONED</code>.</span></div>
+        <div class="step"><b>Start the game</b><span>Run <code>Play MC2 - REBONED.cmd</code> from inside the folder.</span></div>
+        <div class="step"><b>Uninstall cleanly</b><span>Delete the folder. Nothing is installed anywhere else.</span></div>
+      </div>
+    </section>
+
+    <section class="band alt" aria-labelledby="bugs-heading">
+      <div class="two-col">
+        <div class="block">
+          <h3 id="bugs-heading">Bug Reports</h3>
+          <p>The folder keeps its own records in <code>bug-shots</code>: session logs, crash reports, and Ctrl+Alt+S screenshots. Quitting through the in-game menu produces a better log.</p>
+        </div>
+        <div class="block">
+          <h3>Package Boundary</h3>
+          <p>The release asset is the game package. It should not be checked into this site repository; GitHub Releases is where the 600 MB archive belongs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="netplay-heading">
+      <div class="netplay">
+        <div class="net-badge" aria-hidden="true">
+          <div>
+            <strong>NetPlay</strong>
+            <span>Browser multiplayer coming soon</span>
+          </div>
+        </div>
+        <div class="plain-copy">
+          <h2 id="netplay-heading">NetPlay Is In Development</h2>
+          <p>NetPlay is the browser-playable branch of this work: MechCommander 2 compiled to run in a web browser, with multiplayer as the point of the project.</p>
+          <p>There is no date yet, no sign-up form, and no promised feature list. When it is ready to show honestly, it will live here without turning this static site into an account system.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band alt" aria-labelledby="source-heading">
+      <div class="provenance">
+        <div class="plain-copy">
+          <h2 id="source-heading">Where This Comes From</h2>
+          <p>Microsoft published MechCommander 2 as a shared-source release, with the source and content needed to build the game; REBONED is a rebuild of that release, not a cracked retail copy.</p>
+          <p>MechCommander and MechWarrior/BattleTech are not mine. Credit for the original game and setting belongs to Microsoft and FASA; this site claims the port work and nothing else.</p>
+          <p>Nothing here is for sale and nothing is monetised: no price, no ads, no analytics, no affiliate links, and no paywalled build. This is a labour of love.</p>
+          <p>Public copies of the release EULA identify it as the <strong>Shared Source Limited Permissive License for use of MechCommander 2</strong>.</p>
+        </div>
+        <div class="block">
+          <h3>Sources</h3>
+          <ul class="source-list">
+            <li><a href="https://www.neowin.net/news/microsoft-mechcommander-2-shared-source-release/">Neowin: Microsoft MechCommander 2 Shared Source Release</a></li>
+            <li><a href="https://www.moddb.com/games/mech-commander-2/features/mechcommander-2-eula">Public mirror of the MechCommander 2 EULA text</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footline">
+      <span>MechCommander 2 - REBONED, Alpha 1.</span>
+      <span><a href="../">Back to Macroslop Binbows</a></span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  var DOWNLOAD_URL = "REPLACE_WITH_RELEASE_ASSET_URL";
+
+  (function(){
+    var link = document.querySelector("[data-download-link]");
+    if (!link) return;
+
+    var placeholder = !DOWNLOAD_URL || DOWNLOAD_URL.indexOf("REPLACE_WITH_") === 0;
+    if (placeholder) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.setAttribute("tabindex", "-1");
+      link.classList.add("is-disabled");
+      link.textContent = "Download pending";
+      return;
+    }
+
+    link.href = DOWNLOAD_URL;
+    link.removeAttribute("aria-disabled");
+    link.removeAttribute("tabindex");
+    link.classList.remove("is-disabled");
+    link.textContent = "Download Alpha 1";
+  })();
+</script>
+</body>
+</html>
