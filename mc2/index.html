@@ -12,69 +12,112 @@
 <meta property="og:url" content="https://skeletonlogic.github.io/MacroslopBinbows/mc2/">
 <meta name="twitter:card" content="summary">
 <style>
-  :root{color-scheme:dark;--bg:#080a09;--panel:#121715;--line:#50614d;--text:#eef4e9;--muted:#c8d3c2;--amber:#ffc866;--green:#d6f5a8;--font:"Segoe UI",Roboto,Arial,system-ui,sans-serif}
+  /* Styled after the game's own side panel and start card: gunmetal plates with
+     rivets, inset black wells, hazard stripes, orange Bahnschrift titles, blue
+     LED accents and monospace readouts. */
+  :root{color-scheme:dark;
+    --steel-hi:#58616b;--steel-ring:#3d444c;--inset:#07090c;
+    --orange:#f39a2b;--orange-dim:#9a6a2c;--hazard:#d9b21f;--blue:#4a8fd6;--blue-text:#86c1ea;
+    --text:#d6dde4;--muted:#8394a5;
+    --display:'Bahnschrift SemiCondensed',Bahnschrift,'Arial Narrow','Segoe UI',sans-serif;
+    --mono:Consolas,'Cascadia Mono',monospace;
+    --plate:radial-gradient(circle at 9px 9px,#7b848d 0 2px,transparent 2.5px),radial-gradient(circle at calc(100% - 9px) 9px,#7b848d 0 2px,transparent 2.5px),radial-gradient(circle at 9px calc(100% - 9px),#7b848d 0 2px,transparent 2.5px),radial-gradient(circle at calc(100% - 9px) calc(100% - 9px),#7b848d 0 2px,transparent 2.5px),linear-gradient(#343a41,#22272d 30%,#1a1e23)}
   *{box-sizing:border-box}
-  html{background:var(--bg)}
-  body{margin:0;overflow-x:hidden;font-family:var(--font);font-size:16px;line-height:1.5;color:var(--text);background:linear-gradient(90deg,rgba(147,214,111,.055) 1px,transparent 1px) 0 0/72px 72px,linear-gradient(0deg,rgba(240,178,74,.04) 1px,transparent 1px) 0 0/72px 72px,linear-gradient(180deg,#0d100f 0%,#111614 54%,#080a0a 100%)}
-  a{color:var(--green)}a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}p{margin:0;color:var(--muted)}
-  .wrap{width:min(1180px,100%);margin:0 auto;padding:18px 16px 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:48px;padding:6px 0 16px}
-  .back{display:inline-flex;align-items:center;gap:8px;min-height:36px;color:var(--text);text-decoration:none;font-weight:800}.back-mark{display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);background:#121715;color:var(--amber);clip-path:polygon(0 0,100% 0,100% 72%,74% 100%,0 100%)}
-  .chip{display:inline-flex;min-height:32px;align-items:center;padding:5px 9px;border:1px solid rgba(255,200,102,.58);background:rgba(255,200,102,.12);color:#ffe8b2;font-size:.78rem;font-weight:900;text-transform:uppercase}
-  .hero{padding:20px 0 26px;border-bottom:1px solid rgba(135,167,114,.32)}.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--green);font-size:.76rem;font-weight:900;text-transform:uppercase}.eyebrow:before{content:"";display:block;width:42px;height:2px;background:#93d66f}
-  .title-row{display:grid;grid-template-columns:76px auto minmax(180px,1fr);align-items:center;gap:14px;margin-bottom:12px}.logo-mark{display:block;width:72px;height:74px;flex:none}.logo-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 12px rgba(255,200,102,.18))}
-  h1{margin:0;color:#f7c05b;font-size:clamp(3.2rem,5.4vw,4.75rem);font-weight:1000;line-height:.9;text-transform:uppercase;text-shadow:0 2px 0 #000;white-space:nowrap}.subtitle{display:block;justify-self:end;margin:0;color:#edf9e0;font-size:1.85rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
-  .copy-row{display:grid;grid-template-columns:minmax(0,440px) auto;justify-content:space-between;align-items:start;gap:42px;width:100%}.copy-text{max-width:48ch}.intro{font-size:.92rem;color:#dce7d6}.legal{margin-top:8px;color:#aebdab;font-size:.72rem;line-height:1.38}
-  .download-card{display:flex;align-items:center;gap:9px;flex:none;border:1px solid rgba(135,167,114,.45);background:rgba(18,23,21,.9);padding:8px 9px}.download-link{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 12px;border:1px solid #9b6c24;background:linear-gradient(180deg,#ffc866,#d98b29);color:#15110a;text-decoration:none;font-weight:900;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.62)}.download-meta{font-size:.72rem;color:#d5dfce;white-space:nowrap}.download-meta strong{display:block;color:#ffe0a0;font-size:.76rem}
-  .section{padding:34px 0 30px}.teaser-shell{display:grid;place-items:center;border-top:1px solid rgba(135,167,114,.25);border-bottom:1px solid rgba(135,167,114,.25);margin-bottom:28px;padding:28px 0}.teaser-frame{display:grid;place-items:center;width:100%;min-height:500px;border:1px solid rgba(255,200,102,.66);background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86);box-shadow:0 22px 54px rgba(0,0,0,.34)}.teaser-label{color:#ffe0a0;font-size:2.8rem;font-weight:1000;letter-spacing:.08em;text-transform:uppercase}
-  .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}.block{min-height:100%;border:1px solid rgba(135,167,114,.48);background:rgba(21,26,24,.92);padding:18px}.block h2{margin:0 0 12px;color:var(--amber);font-size:1rem;text-transform:uppercase}.block ul{margin:0;padding-left:20px;color:#d8e2d1}.block li{margin:8px 0;font-size:.9rem}
-  .play-frame{justify-self:start;width:var(--page-w,100vw);margin-left:calc(50% - var(--page-w,100vw) / 2);height:100vh;height:100dvh;border-top:1px solid rgba(255,200,102,.66);border-bottom:1px solid rgba(255,200,102,.66);background:#000;box-shadow:0 22px 54px rgba(0,0,0,.34)}.play-frame iframe{display:block;width:100%;height:100%;border:0}
-  .play-launch{display:grid;place-items:center;align-content:center;gap:10px;width:100%;height:100%;border:0;cursor:pointer;color:inherit;font:inherit;background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86)}.play-launch:hover .teaser-label,.play-launch:focus-visible .teaser-label{color:#fff3d0}.play-launch:focus-visible{outline:3px solid var(--amber);outline-offset:-6px}.play-hint{color:#c8d3c2;font-size:.85rem}
-  .play-meta{display:flex;justify-content:space-between;align-items:center;gap:22px;width:100%;margin-top:10px;font-size:.82rem;color:#c8d3c2}.play-meta strong{color:#ffe0a0}.play-meta a{white-space:nowrap;font-weight:800}
-  .block h3{margin:16px 0 8px;color:#ffe0a0;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em}
-  .patch{margin-top:22px}.patch h2{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.patch-sub{color:#aebdab;font-size:.76rem;font-weight:600;text-transform:none}
-  .patch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.patch-group h3{margin-top:4px;padding-bottom:6px;border-bottom:1px solid rgba(135,167,114,.35)}.patch li{list-style:none;margin:10px 0 10px -20px}
-  .tag{display:inline-block;min-width:62px;margin-right:8px;padding:1px 6px;font-size:.68rem;font-weight:900;text-align:center;text-transform:uppercase;vertical-align:1px;border:1px solid}.tag.new{color:#d6f5a8;border-color:rgba(147,214,111,.6);background:rgba(147,214,111,.12)}.tag.buff{color:#ffe0a0;border-color:rgba(255,200,102,.6);background:rgba(255,200,102,.12)}.tag.fix{color:#a8d8f5;border-color:rgba(111,180,214,.6);background:rgba(111,180,214,.12)}
-  code{padding:1px 5px;border:1px solid rgba(135,167,114,.35);background:#0d100f;color:#f4d89d;font-family:"Cascadia Mono","Consolas",monospace;font-size:.94em}footer{padding-top:28px;color:#aebdab;font-size:.9rem}footer .footline{display:flex;justify-content:flex-end;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(135,167,114,.3);padding-top:18px}
-  @media (max-width:900px){.title-row{grid-template-columns:64px 1fr}.logo-mark{width:60px;height:62px}.subtitle{grid-column:2;justify-self:start;font-size:1.4rem}h1{font-size:3.2rem}.copy-row{grid-template-columns:1fr}.download-card{width:min(100%,420px)}.teaser-frame{min-height:420px}.two-col{grid-template-columns:1fr}.patch-grid{grid-template-columns:1fr}.play-meta{flex-direction:column;align-items:flex-start}}
-  @media (max-width:620px){.wrap{padding:14px 12px 38px}.topbar{align-items:flex-start;flex-direction:column}.title-row{grid-template-columns:50px 1fr;align-items:center}.logo-mark{width:48px;height:50px}h1{font-size:2.05rem;white-space:normal}.subtitle{font-size:1.08rem}.download-card{align-items:stretch;flex-direction:column}.download-link{width:100%}.download-meta{white-space:normal}.teaser-frame{min-height:360px}.teaser-label{font-size:2.15rem}}
+  html{background:#000}
+  body{margin:0;overflow-x:hidden;font-family:var(--display);font-size:16px;line-height:1.5;color:var(--text);
+    background:radial-gradient(ellipse at 50% 0,rgba(52,58,65,.55),rgba(0,0,0,0) 60%),radial-gradient(ellipse at center,#14191f,#000 85%) fixed}
+  a{color:var(--blue-text)}a:hover{color:#b5d9ff}a:focus-visible{outline:1px solid var(--blue);outline-offset:3px}
+  p{margin:0}
+  .wrap{width:min(1180px,100%);margin:0 auto;padding:18px 16px 44px}
+  .hazard{height:9px;background:repeating-linear-gradient(-45deg,var(--hazard) 0 8px,#111 8px 16px);border:1px solid #000}
+  .plate{background:var(--plate);border:1px solid #000;box-shadow:0 0 0 1px var(--steel-hi),0 18px 40px rgba(0,0,0,.6)}
+  .well{background:var(--inset);border:1px solid #000;box-shadow:0 0 0 1px var(--steel-ring)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font:600 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--orange);padding:11px 14px;border:1px solid var(--orange-dim);border-radius:2px;background:linear-gradient(#30363d,#1a1e23);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),inset 0 -1px 0 #000;white-space:nowrap}
+  .btn:hover{border-color:var(--orange);color:#ffc070;background:linear-gradient(#3a4149,#1f242a)}
+  .btn-red{color:#ff6b57;border-color:#a8392c;background:linear-gradient(#3b2b2a,#1f1615)}.btn-red:hover{color:#ff9585;border-color:#ff6b57;background:linear-gradient(#4a3230,#261a19)}
+  .btn-blue{color:#86c1ff;border-color:#3a6fa8;background:linear-gradient(#27323f,#151c24)}.btn-blue:hover{color:#b5d9ff;border-color:#6aaaf0;background:linear-gradient(#2f3c4b,#19212a)}
+
+  .topbar{display:flex;align-items:center;min-height:48px;padding:6px 0 16px}
+  .back{gap:10px}.back-arrow{color:var(--blue-text)}
+
+  .hero{position:relative;padding:0;margin-bottom:26px}
+  .hero-body{padding:20px 22px 22px}
+  .title-row{display:grid;grid-template-columns:76px auto minmax(150px,1fr);align-items:center;gap:16px;margin-bottom:16px}
+  .logo-mark{display:block;width:72px;height:74px}.logo-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 10px rgba(74,143,214,.35))}
+  h1{margin:0;color:var(--orange);font:700 clamp(3rem,5.4vw,4.75rem)/.95 var(--display);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;text-shadow:0 2px 0 #000,0 0 18px rgba(243,154,43,.28)}
+  .subtitle{justify-self:end;color:var(--muted);font:600 1.3rem/1 var(--display);letter-spacing:.42em;text-transform:uppercase}
+  .copy-row{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+  .legal{font:12px/1.55 var(--mono);color:var(--blue-text)}
+  .download-card{display:flex;align-items:center;gap:14px;padding:10px 12px}
+  .download-card .btn{font-size:15px;padding:13px 22px}
+  .download-meta{font:12px/1.45 var(--mono);color:var(--muted)}.download-meta strong{display:block;color:var(--orange);font:600 12px/1.3 var(--display);letter-spacing:.2em;text-transform:uppercase}
+
+  .play-frame{justify-self:start;width:var(--page-w,100vw);margin-left:calc(50% - var(--page-w,100vw) / 2);height:100vh;height:100dvh;background:#000;border-top:1px solid #000;border-bottom:1px solid #000;box-shadow:0 -1px 0 var(--steel-hi),0 1px 0 var(--steel-hi)}
+  .play-frame iframe{display:block;width:100%;height:100%;border:0}
+  .teaser-shell{display:grid;margin-bottom:28px}
+  .play-meta{display:flex;justify-content:space-between;align-items:center;gap:22px;margin-top:12px;font:12px/1.4 var(--mono);color:var(--blue-text)}
+
+  .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}
+  .block{padding:14px}
+  .block .well{height:100%;padding:0 0 12px}
+  .block h2{margin:0;padding:12px 16px;border-bottom:1px solid #000;color:var(--orange);font:700 18px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;background:linear-gradient(#262b31,#1a1e23)}
+  .block h3{margin:14px 16px 4px;color:var(--muted);font:600 11px/1 var(--display);letter-spacing:.24em;text-transform:uppercase}
+  .block ul{margin:8px 0 0;padding:0 16px 0 34px;color:var(--text)}.block li{margin:8px 0;font-size:.95rem}.block li::marker{color:var(--blue)}
+  code{padding:1px 5px;border:1px solid #000;box-shadow:0 0 0 1px var(--steel-ring);background:#0d1014;color:#ffc070;font:.9em var(--mono)}
+
+  .patch{margin-top:22px}
+  .patch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 26px;padding:0 16px}
+  .patch-group h3{margin:16px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--steel-ring)}
+  .patch .patch-group ul{padding:0}.patch li{list-style:none;margin:12px 0}
+  .tag{display:inline-block;width:66px;margin-right:10px;padding:3px 0;text-align:center;font:700 11px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;vertical-align:1px;border:1px solid;border-radius:2px}
+  .tag.new{color:#86c1ff;border-color:#3a6fa8;background:linear-gradient(#27323f,#151c24);box-shadow:0 0 6px rgba(74,143,214,.35)}
+  .tag.buff{color:var(--orange);border-color:var(--orange-dim);background:linear-gradient(#30363d,#1a1e23)}
+  .tag.fix{color:var(--hazard);border-color:#8a7414;background:linear-gradient(#34301c,#1b190f)}
+
+  footer{padding-top:28px}.footline{display:flex;justify-content:flex-end}
+
+  @media (max-width:900px){.title-row{grid-template-columns:64px 1fr}.logo-mark{width:60px;height:62px}.subtitle{grid-column:2;justify-self:start;font-size:1.05rem}.two-col,.patch-grid{grid-template-columns:1fr}.play-meta{flex-direction:column;align-items:flex-start}}
+  @media (max-width:620px){.wrap{padding:14px 12px 38px}.title-row{grid-template-columns:50px 1fr}.logo-mark{width:48px;height:50px}h1{font-size:2.05rem;white-space:normal}.download-card{flex-direction:column;align-items:stretch;width:100%}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav class="topbar" aria-label="Page">
-    <a class="back" href="../"><span class="back-mark" aria-hidden="true">&lt;</span><span>Macroslop Binbows</span></a>
+    <a class="btn back" href="../"><span class="back-arrow" aria-hidden="true">&#9664;</span><span>Macroslop Binbows</span></a>
   </nav>
 
-  <header class="hero">
-    <div class="title-row">
-      <span class="logo-mark" aria-hidden="true"><img src="assets/mc3-emblem.png" alt=""></span>
-      <h1>MechCommander 2</h1>
-      <span class="subtitle" aria-hidden="true">REBONED</span>
-    </div>
-    <div class="copy-row">
-      <div class="copy-text">
-        <p class="legal">Microsoft published MechCommander 2 as shared source.<br>Original IP belongs to Microsoft/FASA.</p>
+  <header class="hero plate">
+    <div class="hazard"></div>
+    <div class="hero-body">
+      <div class="title-row">
+        <span class="logo-mark" aria-hidden="true"><img src="assets/mc3-emblem.png" alt=""></span>
+        <h1>MechCommander 2</h1>
+        <span class="subtitle" aria-hidden="true">REBONED</span>
       </div>
-      <div class="download-card" id="download">
-        <a class="download-link" data-download-link href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MC2-REBONED-1.0.zip">Download</a>
-        <span class="download-meta"><strong>Release 1.0</strong>600 MB | Windows 10/11 64-bit</span>
+      <div class="copy-row">
+        <p class="legal">Microsoft published MechCommander 2 as shared source.<br>Original IP belongs to Microsoft/FASA.</p>
+        <div class="download-card well" id="download">
+          <a class="btn btn-red download-link" data-download-link href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MC2-REBONED-1.0.zip">Download</a>
+          <span class="download-meta"><strong>Release 1.0</strong>600 MB | Windows 10/11 64-bit</span>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section" aria-label="Release notes">
+    <section aria-label="Release notes">
       <div class="teaser-shell" aria-label="Play in your browser">
         <div class="play-frame" id="play-frame">
-          <button class="play-launch" type="button" id="play-launch"><span class="teaser-label">Play in browser</span><span class="play-hint">Loads the game here. Nothing downloads until you click.</span></button>
+          <iframe src="https://skeletonlogic.github.io/mc2-play/" title="MechCommander 2 - REBONED, playable in the browser" allow="fullscreen; autoplay; gamepad" allowfullscreen></iframe>
         </div>
         <div class="play-meta">
           <a href="https://skeletonlogic.github.io/mc2-play/" target="_blank" rel="noopener">Open in new window</a>
           <span>Use Side Panel to enable Full Screen or download a local copy of MC2.</span>
         </div>
       </div>
+
       <div class="two-col">
-        <div class="block">
+        <div class="block plate"><div class="well">
           <h2>Known Rough Edges</h2>
           <ul>
             <li>Frame rate can dip while spinning the camera hard in heavy scenes.</li>
@@ -84,8 +127,8 @@
             <li>Some buildings on the Palace maps have no collision.</li>
             <li>Rare unit movement lockup. Jump jets usually free them.</li>
           </ul>
-        </div>
-        <div class="block">
+        </div></div>
+        <div class="block plate"><div class="well">
           <h2>Downloaded Offline Game Notes</h2>
           <ul>
             <li>Windows 10 or 11, 64-bit.</li>
@@ -93,10 +136,10 @@
             <li>Install Microsoft Visual C++ Redistributable x64 if missing DLL.</li>
             <li>Delete the folder to uninstall. F12 saves Screenshots to <code>bug-shots</code>.</li>
           </ul>
-        </div>
+        </div></div>
       </div>
 
-      <div class="block patch" id="patch-notes">
+      <div class="block plate patch" id="patch-notes"><div class="well">
         <h2>Patch Notes</h2>
         <div class="patch-grid">
           <div class="patch-group">
@@ -104,7 +147,7 @@
             <ul>
               <li><span class="tag new">New</span><strong>Jump jets for every 'Mech.</strong> All mech chassis can fit Jump Jets, but default variants are unchanged.</li>
               <li><span class="tag new">New</span><strong>Bonus salvage.</strong> Every 10,000 Resource Points left at the end of a mission earns one free 'Mech salvage.</li>
-              <li><span class="tag buff">Changed</span><strong>'Mech names loosened.</strong> Up to 22 characters, and punctuation such as <code>' : * . , &lt; &gt;</code> is allowed.</li>
+              <li><span class="tag buff">Change</span><strong>'Mech names loosened.</strong> Up to 22 characters, and punctuation such as <code>' : * . , &lt; &gt;</code> is allowed.</li>
               <li><span class="tag fix">Fixed</span><strong>Sound effects no longer change each other's volume</strong> when several weapons fire at once.</li>
             </ul>
           </div>
@@ -114,35 +157,22 @@
               <li><span class="tag new">New</span><strong>Modern renderer.</strong> The Direct3D 7 renderer is replaced with WebGPU (Direct3D 12 / Vulkan on desktop).</li>
               <li><span class="tag new">New</span><strong>Render Distance setting,</strong> separate from fog.</li>
               <li><span class="tag new">New</span><strong>Camera tilts to the horizon</strong> and shows the sky the game always had but never let you see.</li>
-              <li><span class="tag buff">Changed</span><strong>Widescreen and high resolutions.</strong></li>
-              <li><span class="tag buff">Changed</span><strong>Frame rate uncapped.</strong></li>
+              <li><span class="tag buff">Change</span><strong>Widescreen and high resolutions.</strong></li>
+              <li><span class="tag buff">Change</span><strong>Frame rate uncapped.</strong></li>
             </ul>
           </div>
         </div>
-      </div>
+      </div></div>
     </section>
   </main>
 
   <footer>
     <div class="footline">
-      <span><a href="../">Back to Macroslop Binbows</a></span>
+      <a class="btn" href="../">Back to Macroslop Binbows</a>
     </div>
   </footer>
 </div>
 <script>
-  // The game page pulls a 32 MB engine as soon as it loads, so it is only
-  // embedded once the visitor asks for it.
-  document.getElementById('play-launch').addEventListener('click', () => {
-    const frame = document.createElement('iframe');
-    frame.src = 'https://skeletonlogic.github.io/mc2-play/';
-    frame.title = 'MechCommander 2 - REBONED, playable in the browser';
-    frame.allow = 'fullscreen; autoplay; gamepad';
-    frame.allowFullscreen = true;
-    const host = document.getElementById('play-frame');
-    host.replaceChildren(frame);
-    frame.focus();
-  });
-
   // Fullscreen for the embedded game. Keyboard Lock (which turns ESC into
   // "hold ESC to exit full screen") only works in the top-level page, so the
   // game asks this page to do it rather than going fullscreen itself.
