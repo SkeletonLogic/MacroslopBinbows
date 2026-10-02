@@ -27,8 +27,15 @@
   .download-card{display:flex;align-items:center;gap:9px;flex:none;border:1px solid rgba(135,167,114,.45);background:rgba(18,23,21,.9);padding:8px 9px}.download-link{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 12px;border:1px solid #9b6c24;background:linear-gradient(180deg,#ffc866,#d98b29);color:#15110a;text-decoration:none;font-weight:900;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.62)}.download-meta{font-size:.72rem;color:#d5dfce;white-space:nowrap}.download-meta strong{display:block;color:#ffe0a0;font-size:.76rem}
   .section{padding:34px 0 30px}.teaser-shell{display:grid;place-items:center;border-top:1px solid rgba(135,167,114,.25);border-bottom:1px solid rgba(135,167,114,.25);margin-bottom:28px;padding:28px 0}.teaser-frame{display:grid;place-items:center;width:100%;min-height:500px;border:1px solid rgba(255,200,102,.66);background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86);box-shadow:0 22px 54px rgba(0,0,0,.34)}.teaser-label{color:#ffe0a0;font-size:2.8rem;font-weight:1000;letter-spacing:.08em;text-transform:uppercase}
   .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}.block{min-height:100%;border:1px solid rgba(135,167,114,.48);background:rgba(21,26,24,.92);padding:18px}.block h2{margin:0 0 12px;color:var(--amber);font-size:1rem;text-transform:uppercase}.block ul{margin:0;padding-left:20px;color:#d8e2d1}.block li{margin:8px 0;font-size:.9rem}
+  .play-frame{width:100%;aspect-ratio:16/10;max-height:78vh;border:1px solid rgba(255,200,102,.66);background:#000;box-shadow:0 22px 54px rgba(0,0,0,.34)}.play-frame iframe{display:block;width:100%;height:100%;border:0}
+  .play-launch{display:grid;place-items:center;align-content:center;gap:10px;width:100%;height:100%;border:0;cursor:pointer;color:inherit;font:inherit;background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86)}.play-launch:hover .teaser-label,.play-launch:focus-visible .teaser-label{color:#fff3d0}.play-launch:focus-visible{outline:3px solid var(--amber);outline-offset:-6px}.play-hint{color:#c8d3c2;font-size:.85rem}
+  .play-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;margin-top:10px;font-size:.82rem;color:#c8d3c2}.play-meta strong{color:#ffe0a0}.play-meta a{white-space:nowrap;font-weight:800}
+  .block h3{margin:16px 0 8px;color:#ffe0a0;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em}
+  .patch{margin-top:22px}.patch h2{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.patch-sub{color:#aebdab;font-size:.76rem;font-weight:600;text-transform:none}
+  .patch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.patch-group h3{margin-top:4px;padding-bottom:6px;border-bottom:1px solid rgba(135,167,114,.35)}.patch li{list-style:none;margin:10px 0 10px -20px}
+  .tag{display:inline-block;min-width:62px;margin-right:8px;padding:1px 6px;font-size:.68rem;font-weight:900;text-align:center;text-transform:uppercase;vertical-align:1px;border:1px solid}.tag.new{color:#d6f5a8;border-color:rgba(147,214,111,.6);background:rgba(147,214,111,.12)}.tag.buff{color:#ffe0a0;border-color:rgba(255,200,102,.6);background:rgba(255,200,102,.12)}.tag.fix{color:#a8d8f5;border-color:rgba(111,180,214,.6);background:rgba(111,180,214,.12)}
   code{padding:1px 5px;border:1px solid rgba(135,167,114,.35);background:#0d100f;color:#f4d89d;font-family:"Cascadia Mono","Consolas",monospace;font-size:.94em}footer{padding-top:28px;color:#aebdab;font-size:.9rem}footer .footline{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(135,167,114,.3);padding-top:18px}
-  @media (max-width:900px){.title-row{grid-template-columns:64px 1fr}.logo-mark{width:60px;height:62px}.subtitle{grid-column:2;justify-self:start;font-size:1.4rem}h1{font-size:3.2rem}.copy-row{grid-template-columns:1fr}.download-card{width:min(100%,420px)}.teaser-frame{min-height:420px}.two-col{grid-template-columns:1fr}}
+  @media (max-width:900px){.title-row{grid-template-columns:64px 1fr}.logo-mark{width:60px;height:62px}.subtitle{grid-column:2;justify-self:start;font-size:1.4rem}h1{font-size:3.2rem}.copy-row{grid-template-columns:1fr}.download-card{width:min(100%,420px)}.teaser-frame{min-height:420px}.two-col{grid-template-columns:1fr}.patch-grid{grid-template-columns:1fr}.play-meta{flex-direction:column;align-items:flex-start}}
   @media (max-width:620px){.wrap{padding:14px 12px 38px}.topbar{align-items:flex-start;flex-direction:column}.title-row{grid-template-columns:50px 1fr;align-items:center}.logo-mark{width:48px;height:50px}h1{font-size:2.05rem;white-space:normal}.subtitle{font-size:1.08rem}.download-card{align-items:stretch;flex-direction:column}.download-link{width:100%}.download-meta{white-space:normal}.teaser-frame{min-height:360px}.teaser-label{font-size:2.15rem}}
 </style>
 </head>
@@ -40,7 +47,6 @@
   </nav>
 
   <header class="hero">
-    <div class="eyebrow">Native Windows rebuild</div>
     <div class="title-row">
       <span class="logo-mark" aria-hidden="true"><img src="assets/mc3-emblem.png" alt=""></span>
       <h1>MechCommander 2</h1>
@@ -48,26 +54,34 @@
     </div>
     <div class="copy-row">
       <div class="copy-text">
-        <p class="intro">MechCommander 2 rebuilt for modern Windows. Alpha 1. The campaign has been completed in testing.</p>
         <p class="legal">Microsoft published MechCommander 2 as shared source. Original IP belongs to Microsoft/FASA. Free download; no ads or gated build.</p>
       </div>
       <div class="download-card" id="download">
         <a class="download-link" data-download-link href="https://github.com/SkeletonLogic/MacroslopBinbows/releases/latest/download/MC2-REBONED-Alpha-1.zip">Download Alpha 1</a>
-        <span class="download-meta"><strong>Alpha 1</strong>about 600 MB | Windows 10/11 64-bit</span>
+        <span class="download-meta"><strong>Alpha 1</strong>600 MB | Windows 10/11 64-bit</span>
       </div>
     </div>
   </header>
 
   <main>
     <section class="section" aria-label="Alpha notes">
-      <div class="teaser-shell" aria-label="NetPlay teaser placeholder">
-        <div class="teaser-frame"><span class="teaser-label">SOON?</span></div>
+      <div class="teaser-shell" aria-label="Play in your browser">
+        <div class="play-frame" id="play-frame">
+          <button class="play-launch" type="button" id="play-launch"><span class="teaser-label">Play in browser</span><span class="play-hint">Loads the game here. Nothing downloads until you click.</span></button>
+        </div>
+        <div class="play-meta">
+          <span><strong>Play in your browser.</strong> Chrome or Edge on desktop (needs WebGPU). The first start downloads about 450 MB of game data; later visits reuse it.</span>
+          <a href="https://skeletonlogic.github.io/mc2-play/" target="_blank" rel="noopener">Open in its own window</a>
+        </div>
       </div>
       <div class="two-col">
         <div class="block">
           <h2>Known Rough Edges</h2>
           <ul>
             <li>Frame rate can dip while spinning the camera hard in heavy scenes.</li>
+          </ul>
+          <h3>Vanilla Bugs (unpatched)</h3>
+          <ul>
             <li>Some buildings on the Palace maps have no collision.</li>
             <li>Units can occasionally lock up in movement. Jump jets usually free them.</li>
           </ul>
@@ -82,6 +96,40 @@
           </ul>
         </div>
       </div>
+
+      <div class="block patch" id="patch-notes">
+        <h2>Patch Notes <span class="patch-sub">Changes from the original 2001 release</span></h2>
+        <div class="patch-grid">
+          <div class="patch-group">
+            <h3>Gameplay</h3>
+            <ul>
+              <li><span class="tag new">New</span><strong>Jump jets for every 'Mech.</strong> Any chassis can fit them, not only the jump-capable designs.</li>
+              <li><span class="tag new">New</span><strong>Bonus salvage.</strong> Every 10,000 Resource Points left at the end of a mission earns one free 'Mech salvage.</li>
+              <li><span class="tag buff">Changed</span><strong>'Mech names loosened.</strong> Up to 22 characters, and punctuation such as <code>' : * . , &lt; &gt;</code> is allowed.</li>
+              <li><span class="tag buff">Changed</span><strong>Fenced buildings can be captured from every side.</strong> Units walk to the nearest reachable ground instead of stalling at the fence.</li>
+            </ul>
+          </div>
+          <div class="patch-group">
+            <h3>Graphics</h3>
+            <ul>
+              <li><span class="tag new">New</span><strong>Modern renderer.</strong> The Direct3D 7 renderer is replaced with WebGPU (Direct3D 12 / Vulkan on desktop).</li>
+              <li><span class="tag buff">Changed</span><strong>Widescreen and high resolutions,</strong> including 1920x1080, with a full-width tactical dock.</li>
+              <li><span class="tag buff">Changed</span><strong>Frame rate uncapped.</strong> No more vsync lock.</li>
+              <li><span class="tag new">New</span><strong>Render Distance setting,</strong> separate from fog, with distance haze that blends into the sky.</li>
+              <li><span class="tag new">New</span><strong>Camera tilts to the horizon</strong> and shows the sky the game always had but never let you see.</li>
+              <li><span class="tag buff">Changed</span><strong>Longer shadows</strong> on terrain objects (out to 700 m), and lamp light colours match their light cones.</li>
+            </ul>
+          </div>
+          <div class="patch-group">
+            <h3>Quality of Life</h3>
+            <ul>
+              <li><span class="tag new">New</span><strong>Playable in the browser.</strong> No install; game data is kept in browser storage between visits.</li>
+              <li><span class="tag buff">Changed</span><strong>A click skips the menu intro,</strong> and P ends mission cutscenes.</li>
+              <li><span class="tag fix">Fixed</span><strong>Sound effects no longer change each other's volume</strong> when several weapons fire at once.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -92,5 +140,19 @@
     </div>
   </footer>
 </div>
+<script>
+  // The game page pulls a 32 MB engine as soon as it loads, so it is only
+  // embedded once the visitor asks for it.
+  document.getElementById('play-launch').addEventListener('click', () => {
+    const frame = document.createElement('iframe');
+    frame.src = 'https://skeletonlogic.github.io/mc2-play/';
+    frame.title = 'MechCommander 2 - REBONED, playable in the browser';
+    frame.allow = 'fullscreen; autoplay; gamepad';
+    frame.allowFullscreen = true;
+    const host = document.getElementById('play-frame');
+    host.replaceChildren(frame);
+    frame.focus();
+  });
+</script>
 </body>
 </html>
