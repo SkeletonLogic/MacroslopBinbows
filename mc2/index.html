@@ -29,7 +29,7 @@
   .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}.block{min-height:100%;border:1px solid rgba(135,167,114,.48);background:rgba(21,26,24,.92);padding:18px}.block h2{margin:0 0 12px;color:var(--amber);font-size:1rem;text-transform:uppercase}.block ul{margin:0;padding-left:20px;color:#d8e2d1}.block li{margin:8px 0;font-size:.9rem}
   .play-frame{justify-self:start;width:var(--page-w,100vw);margin-left:calc(50% - var(--page-w,100vw) / 2);height:100vh;height:100dvh;border-top:1px solid rgba(255,200,102,.66);border-bottom:1px solid rgba(255,200,102,.66);background:#000;box-shadow:0 22px 54px rgba(0,0,0,.34)}.play-frame iframe{display:block;width:100%;height:100%;border:0}
   .play-launch{display:grid;place-items:center;align-content:center;gap:10px;width:100%;height:100%;border:0;cursor:pointer;color:inherit;font:inherit;background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86)}.play-launch:hover .teaser-label,.play-launch:focus-visible .teaser-label{color:#fff3d0}.play-launch:focus-visible{outline:3px solid var(--amber);outline-offset:-6px}.play-hint{color:#c8d3c2;font-size:.85rem}
-  .play-meta{display:flex;justify-content:flex-start;align-items:center;gap:22px;width:100%;margin-top:10px;font-size:.82rem;color:#c8d3c2}.play-meta strong{color:#ffe0a0}.play-meta a{white-space:nowrap;font-weight:800}
+  .play-meta{display:flex;justify-content:space-between;align-items:center;gap:22px;width:100%;margin-top:10px;font-size:.82rem;color:#c8d3c2}.play-meta strong{color:#ffe0a0}.play-meta a{white-space:nowrap;font-weight:800}
   .block h3{margin:16px 0 8px;color:#ffe0a0;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em}
   .patch{margin-top:22px}.patch h2{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.patch-sub{color:#aebdab;font-size:.76rem;font-weight:600;text-transform:none}
   .patch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.patch-group h3{margin-top:4px;padding-bottom:6px;border-bottom:1px solid rgba(135,167,114,.35)}.patch li{list-style:none;margin:10px 0 10px -20px}
@@ -112,10 +112,10 @@
             <h3>Graphics</h3>
             <ul>
               <li><span class="tag new">New</span><strong>Modern renderer.</strong> The Direct3D 7 renderer is replaced with WebGPU (Direct3D 12 / Vulkan on desktop).</li>
-              <li><span class="tag buff">Changed</span><strong>Widescreen and high resolutions.</strong></li>
-              <li><span class="tag buff">Changed</span><strong>Frame rate uncapped.</strong></li>
               <li><span class="tag new">New</span><strong>Render Distance setting,</strong> separate from fog.</li>
               <li><span class="tag new">New</span><strong>Camera tilts to the horizon</strong> and shows the sky the game always had but never let you see.</li>
+              <li><span class="tag buff">Changed</span><strong>Widescreen and high resolutions.</strong></li>
+              <li><span class="tag buff">Changed</span><strong>Frame rate uncapped.</strong></li>
             </ul>
           </div>
         </div>
