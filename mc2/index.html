@@ -22,12 +22,12 @@
   .chip{display:inline-flex;min-height:32px;align-items:center;padding:5px 9px;border:1px solid rgba(255,200,102,.58);background:rgba(255,200,102,.12);color:#ffe8b2;font-size:.78rem;font-weight:900;text-transform:uppercase}
   .hero{padding:20px 0 26px;border-bottom:1px solid rgba(135,167,114,.32)}.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--green);font-size:.76rem;font-weight:900;text-transform:uppercase}.eyebrow:before{content:"";display:block;width:42px;height:2px;background:#93d66f}
   .title-row{display:grid;grid-template-columns:76px auto minmax(180px,1fr);align-items:center;gap:14px;margin-bottom:12px}.logo-mark{display:block;width:72px;height:74px;flex:none}.logo-mark img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 12px rgba(255,200,102,.18))}
-  h1{margin:0;color:#f7c05b;font-size:4.75rem;font-weight:1000;line-height:.9;text-transform:uppercase;text-shadow:0 2px 0 #000;white-space:nowrap}.subtitle{display:block;justify-self:end;margin:0;color:#edf9e0;font-size:1.85rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+  h1{margin:0;color:#f7c05b;font-size:clamp(3.2rem,5.4vw,4.75rem);font-weight:1000;line-height:.9;text-transform:uppercase;text-shadow:0 2px 0 #000;white-space:nowrap}.subtitle{display:block;justify-self:end;margin:0;color:#edf9e0;font-size:1.85rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
   .copy-row{display:grid;grid-template-columns:minmax(0,440px) auto;justify-content:space-between;align-items:start;gap:42px;width:100%}.copy-text{max-width:48ch}.intro{font-size:.92rem;color:#dce7d6}.legal{margin-top:8px;color:#aebdab;font-size:.72rem;line-height:1.38}
   .download-card{display:flex;align-items:center;gap:9px;flex:none;border:1px solid rgba(135,167,114,.45);background:rgba(18,23,21,.9);padding:8px 9px}.download-link{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 12px;border:1px solid #9b6c24;background:linear-gradient(180deg,#ffc866,#d98b29);color:#15110a;text-decoration:none;font-weight:900;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.62)}.download-meta{font-size:.72rem;color:#d5dfce;white-space:nowrap}.download-meta strong{display:block;color:#ffe0a0;font-size:.76rem}
   .section{padding:34px 0 30px}.teaser-shell{display:grid;place-items:center;border-top:1px solid rgba(135,167,114,.25);border-bottom:1px solid rgba(135,167,114,.25);margin-bottom:28px;padding:28px 0}.teaser-frame{display:grid;place-items:center;width:100%;min-height:500px;border:1px solid rgba(255,200,102,.66);background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86);box-shadow:0 22px 54px rgba(0,0,0,.34)}.teaser-label{color:#ffe0a0;font-size:2.8rem;font-weight:1000;letter-spacing:.08em;text-transform:uppercase}
   .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:stretch}.block{min-height:100%;border:1px solid rgba(135,167,114,.48);background:rgba(21,26,24,.92);padding:18px}.block h2{margin:0 0 12px;color:var(--amber);font-size:1rem;text-transform:uppercase}.block ul{margin:0;padding-left:20px;color:#d8e2d1}.block li{margin:8px 0;font-size:.9rem}
-  .play-frame{width:100vw;margin-left:calc(50% - 50vw);height:100vh;height:100dvh;border-top:1px solid rgba(255,200,102,.66);border-bottom:1px solid rgba(255,200,102,.66);background:#000;box-shadow:0 22px 54px rgba(0,0,0,.34)}.play-frame iframe{display:block;width:100%;height:100%;border:0}
+  .play-frame{justify-self:start;width:var(--page-w,100vw);margin-left:calc(50% - var(--page-w,100vw) / 2);height:100vh;height:100dvh;border-top:1px solid rgba(255,200,102,.66);border-bottom:1px solid rgba(255,200,102,.66);background:#000;box-shadow:0 22px 54px rgba(0,0,0,.34)}.play-frame iframe{display:block;width:100%;height:100%;border:0}
   .play-launch{display:grid;place-items:center;align-content:center;gap:10px;width:100%;height:100%;border:0;cursor:pointer;color:inherit;font:inherit;background:linear-gradient(90deg,rgba(255,200,102,.08) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(0deg,rgba(147,214,111,.075) 1px,transparent 1px) 0 0/34px 34px,rgba(15,20,18,.86)}.play-launch:hover .teaser-label,.play-launch:focus-visible .teaser-label{color:#fff3d0}.play-launch:focus-visible{outline:3px solid var(--amber);outline-offset:-6px}.play-hint{color:#c8d3c2;font-size:.85rem}
   .play-meta{display:flex;justify-content:flex-start;align-items:center;gap:22px;width:100%;margin-top:10px;font-size:.82rem;color:#c8d3c2}.play-meta strong{color:#ffe0a0}.play-meta a{white-space:nowrap;font-weight:800}
   .block h3{margin:16px 0 8px;color:#ffe0a0;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em}
@@ -167,6 +167,13 @@
     if (frame) frame.contentWindow.postMessage({ mc2: 'fullscreen-state', active }, gameOrigin);
     if (active) frame.focus();
   });
+
+  // Full-bleed width = the visible page width. 100vw includes the scrollbar,
+  // which pushed the play area off-centre.
+  const setPageWidth = () => document.documentElement.style.setProperty('--page-w', document.documentElement.clientWidth + 'px');
+  setPageWidth();
+  addEventListener('resize', setPageWidth);
+  if (window.ResizeObserver) new ResizeObserver(setPageWidth).observe(document.body);
 
   // Scroll assist: when the visitor stops scrolling with the game area filling
   // at least 90% of the window, ease the page the rest of the way so it fits.
